@@ -2,94 +2,94 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>My New Hugo Site</title>
-    <link>https://qtrungvn.github.io/myblog_qtrung/</link>
+    <link>http://localhost:1313/myblog_qtrung/</link>
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 24 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://qtrungvn.github.io/myblog_qtrung/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/myblog_qtrung/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>https://qtrungvn.github.io/myblog_qtrung/contact/</link>
+      <link>http://localhost:1313/myblog_qtrung/contact/</link>
       <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://qtrungvn.github.io/myblog_qtrung/contact/</guid>
+      <guid>http://localhost:1313/myblog_qtrung/contact/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;h2 id=&#34;liên-hệ-với-tôi&#34;&gt;Liên hệ với tôi&lt;/h2&gt;&#xA;&lt;p&gt;Tôi luôn sẵn sàng lắng nghe và phản hồi các câu hỏi về &lt;strong&gt;lập trình, dự án cá nhân hoặc hợp tác&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;h3 id=&#34;-thông-tin-liên-hệ&#34;&gt;📌 Thông tin liên hệ&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Email:&lt;/strong&gt; &lt;a href=&#34;mailto:contact@trungblog.dev&#34;&gt;contact@trungblog.dev&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Facebook:&lt;/strong&gt; &lt;a href=&#34;https://www.facebook.com/trung.tran.572662&#34;&gt;Trung Tran&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Instagram:&lt;/strong&gt; &lt;a href=&#34;https://www.instagram.com/trungkg915/&#34;&gt;@trungkg915&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;GitHub:&lt;/strong&gt; &lt;a href=&#34;https://github.com&#34;&gt;github.com&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;-gửi-tin-nhắn-cho-tôi&#34;&gt;✉️ Gửi tin nhắn cho tôi&lt;/h2&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     <item>
       <title>Node.js Fundamentals - Xây dựng Server-side Applications</title>
-      <link>https://qtrungvn.github.io/myblog_qtrung/posts/nodejs-fundamentals/</link>
+      <link>http://localhost:1313/myblog_qtrung/posts/nodejs-fundamentals/</link>
       <pubDate>Fri, 27 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/nodejs-fundamentals/</guid>
+      <guid>http://localhost:1313/myblog_qtrung/posts/nodejs-fundamentals/</guid>
       <description>Khám phá Node.js - runtime JavaScript cho server-side development với modules, file system, HTTP server.</description>
     </item>
     <item>
       <title>JavaScript Promises - Xử lý Asynchronous Operations</title>
-      <link>https://qtrungvn.github.io/myblog_qtrung/posts/javascript-promises/</link>
+      <link>http://localhost:1313/myblog_qtrung/posts/javascript-promises/</link>
       <pubDate>Thu, 26 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/javascript-promises/</guid>
+      <guid>http://localhost:1313/myblog_qtrung/posts/javascript-promises/</guid>
       <description>Khám phá JavaScript Promises - cách hiện đại để xử lý asynchronous operations, tránh callback hell.</description>
     </item>
     <item>
       <title>Async/Await - Xử lý Asynchronous Code một cách đồng bộ</title>
-      <link>https://qtrungvn.github.io/myblog_qtrung/posts/async-await/</link>
+      <link>http://localhost:1313/myblog_qtrung/posts/async-await/</link>
       <pubDate>Wed, 25 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/async-await/</guid>
+      <guid>http://localhost:1313/myblog_qtrung/posts/async-await/</guid>
       <description>Khám phá async/await - cách hiện đại và dễ đọc để xử lý asynchronous operations trong JavaScript.</description>
     </item>
     <item>
       <title>ES6 Features - Những tính năng mới quan trọng của JavaScript</title>
-      <link>https://qtrungvn.github.io/myblog_qtrung/posts/es6-features/</link>
+      <link>http://localhost:1313/myblog_qtrung/posts/es6-features/</link>
       <pubDate>Tue, 24 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/es6-features/</guid>
+      <guid>http://localhost:1313/myblog_qtrung/posts/es6-features/</guid>
       <description>Khám phá các tính năng mạnh mẽ của ES6: arrow functions, destructuring, modules, promises và nhiều hơn nữa.</description>
     </item>
     <item>
       <title>Java Multithreading - Lập trình đa luồng hiệu quả</title>
-      <link>https://qtrungvn.github.io/myblog_qtrung/posts/java-multithreading/</link>
+      <link>http://localhost:1313/myblog_qtrung/posts/java-multithreading/</link>
       <pubDate>Mon, 23 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/java-multithreading/</guid>
+      <guid>http://localhost:1313/myblog_qtrung/posts/java-multithreading/</guid>
       <description>Khám phá Java Multithreading với Thread, Runnable, synchronized, và các công cụ concurrency hiện đại.</description>
     </item>
     <item>
       <title>Spring Boot Cơ bản - Khởi tạo ứng dụng web nhanh chóng</title>
-      <link>https://qtrungvn.github.io/myblog_qtrung/posts/spring-boot-basics/</link>
+      <link>http://localhost:1313/myblog_qtrung/posts/spring-boot-basics/</link>
       <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/spring-boot-basics/</guid>
+      <guid>http://localhost:1313/myblog_qtrung/posts/spring-boot-basics/</guid>
       <description>Hướng dẫn tạo ứng dụng Spring Boot đầu tiên với REST API, Dependency Injection và Auto-configuration.</description>
     </item>
     <item>
       <title>Java Generics - Type Safety và Code Reusability</title>
-      <link>https://qtrungvn.github.io/myblog_qtrung/posts/java-generics/</link>
+      <link>http://localhost:1313/myblog_qtrung/posts/java-generics/</link>
       <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/java-generics/</guid>
+      <guid>http://localhost:1313/myblog_qtrung/posts/java-generics/</guid>
       <description>Khám phá sức mạnh của Java Generics với Generic Classes, Methods và Wildcards để viết code an toàn và tái sử dụng.</description>
     </item>
     <item>
       <title>Java Streams API - Xử lý dữ liệu hiệu quả</title>
-      <link>https://qtrungvn.github.io/myblog_qtrung/posts/java-streams/</link>
+      <link>http://localhost:1313/myblog_qtrung/posts/java-streams/</link>
       <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/java-streams/</guid>
+      <guid>http://localhost:1313/myblog_qtrung/posts/java-streams/</guid>
       <description>Khám phá Java Streams API với các phép toán trung gian và cuối cùng để xử lý dữ liệu một cách khai báo.</description>
     </item>
     <item>
       <title>Tương lai của Trí tuệ Nhân tạo: Những xu hướng đáng chú ý năm 2024</title>
-      <link>https://qtrungvn.github.io/myblog_qtrung/posts/ai-future/</link>
+      <link>http://localhost:1313/myblog_qtrung/posts/ai-future/</link>
       <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/ai-future/</guid>
+      <guid>http://localhost:1313/myblog_qtrung/posts/ai-future/</guid>
       <description>&lt;p&gt;Khám phá những tiến bộ mới nhất trong lĩnh vực AI, từ machine learning đến neural networks, và cách chúng đang thay đổi thế giới công nghệ.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Java Collections Framework - Hướng dẫn toàn diện</title>
-      <link>https://qtrungvn.github.io/myblog_qtrung/posts/java-collections/</link>
+      <link>http://localhost:1313/myblog_qtrung/posts/java-collections/</link>
       <pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/java-collections/</guid>
+      <guid>http://localhost:1313/myblog_qtrung/posts/java-collections/</guid>
       <description>Khám phá Java Collections Framework với ArrayList, HashMap, HashSet và các cấu trúc dữ liệu quan trọng khác.</description>
     </item>
     <item>
       <title>Hướng dẫn toàn diện về React 18 và các tính năng mới</title>
-      <link>https://qtrungvn.github.io/myblog_qtrung/posts/react-18/</link>
+      <link>http://localhost:1313/myblog_qtrung/posts/react-18/</link>
       <pubDate>Wed, 18 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/react-18/</guid>
+      <guid>http://localhost:1313/myblog_qtrung/posts/react-18/</guid>
       <description>&lt;p&gt;Tìm hiểu về Concurrent Rendering, Automatic Batching và các tính năng mới trong React 18.&lt;/p&gt;</description>
     </item>
   </channel>

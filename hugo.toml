@@ -1,3 +1,5 @@
 baseURL = "https://qtrungvn.github.io/myblog_qtrung/"
+relativeURLs = true
+canonifyURLs = true
 languageCode = 'en-us'
 title = 'My New Hugo Site'
