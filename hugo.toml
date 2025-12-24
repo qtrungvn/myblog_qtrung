@@ -1,5 +1,8 @@
 baseURL = "https://qtrungvn.github.io/myblog_qtrung/"
+languageCode = "vi-vn"
+title = "Trung Blog"
+
 relativeURLs = true
 canonifyURLs = true
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+
+theme = "hugo-developer-portfolio"
