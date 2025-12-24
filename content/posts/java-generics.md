@@ -1,13 +1,11 @@
 ---
-title: "Java Generics - Type Safety và Code Reusability"
-date: 2024-12-21T00:00:00Z
+title: ""
+date: 2025-12-21T00:00:00Z
 draft: false
 categories: ["Java"]
 tags: ["Java", "Generics", "Type Safety"]
 summary: "Khám phá sức mạnh của Java Generics với Generic Classes, Methods và Wildcards để viết code an toàn và tái sử dụng."
 ---
-
-# Java Generics - Type Safety và Code Reusability
 
 Java Generics, được giới thiệu từ Java 5, cho phép viết code có thể hoạt động với nhiều kiểu dữ liệu khác nhau một cách type-safe. Generics giúp phát hiện lỗi ở compile-time thay vì runtime.
 

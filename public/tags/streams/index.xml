@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Streams on My New Hugo Site</title>
+    <title>Streams on Trung Blog</title>
     <link>http://localhost:1313/myblog_qtrung/tags/streams/</link>
-    <description>Recent content in Streams on My New Hugo Site</description>
+    <description>Recent content in Streams on Trung Blog</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 20 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <language>vi-vn</language>
+    <lastBuildDate>Sat, 20 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/myblog_qtrung/tags/streams/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Java Streams API - Xử lý dữ liệu hiệu quả</title>
+      <title></title>
       <link>http://localhost:1313/myblog_qtrung/posts/java-streams/</link>
-      <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/posts/java-streams/</guid>
       <description>Khám phá Java Streams API với các phép toán trung gian và cuối cùng để xử lý dữ liệu một cách khai báo.</description>
     </item>

@@ -1,13 +1,13 @@
 ---
-title: "Node.js Fundamentals - Xây dựng Server-side Applications"
-date: 2024-12-27T00:00:00Z
+title: " "
+date: 2025-12-27T00:00:00Z
 draft: false
 categories: ["JavaScript"]
 tags: ["Node.js", "JavaScript", "Backend", "Server-side"]
 summary: "Khám phá Node.js - runtime JavaScript cho server-side development với modules, file system, HTTP server."
 ---
 
-# Node.js Fundamentals - Xây dựng Server-side Applications
+
 
 Node.js là một runtime JavaScript cho server-side, cho phép chạy JavaScript bên ngoài browser. Với Node.js, bạn có thể xây dựng web servers, APIs, command-line tools và nhiều loại ứng dụng khác.
 

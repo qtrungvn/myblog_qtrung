@@ -1,220 +1,164 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on My New Hugo Site</title>
+    <title>Tags on Trung Blog</title>
     <link>http://localhost:1313/myblog_qtrung/tags/</link>
-    <description>Recent content in Tags on My New Hugo Site</description>
+    <description>Recent content in Tags on Trung Blog</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 27 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <language>vi-vn</language>
+    <lastBuildDate>Wed, 24 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/myblog_qtrung/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Backend</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/backend/</link>
-      <pubDate>Fri, 27 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/backend/</guid>
+      <title>ES6</title>
+      <link>http://localhost:1313/myblog_qtrung/tags/es6/</link>
+      <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/myblog_qtrung/tags/es6/</guid>
       <description></description>
     </item>
     <item>
       <title>JavaScript</title>
       <link>http://localhost:1313/myblog_qtrung/tags/javascript/</link>
-      <pubDate>Fri, 27 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/tags/javascript/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Node.js</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/node.js/</link>
-      <pubDate>Fri, 27 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/node.js/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Server-Side</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/server-side/</link>
-      <pubDate>Fri, 27 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/server-side/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Async Programming</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/async-programming/</link>
-      <pubDate>Thu, 26 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/async-programming/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Asynchronous</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/asynchronous/</link>
-      <pubDate>Thu, 26 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/asynchronous/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Promises</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/promises/</link>
-      <pubDate>Thu, 26 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/promises/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Async</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/async/</link>
-      <pubDate>Wed, 25 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/async/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Asynchronous Programming</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/asynchronous-programming/</link>
-      <pubDate>Wed, 25 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/asynchronous-programming/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>ES6</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/es6/</link>
-      <pubDate>Tue, 24 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/es6/</guid>
       <description></description>
     </item>
     <item>
       <title>Modern JavaScript</title>
       <link>http://localhost:1313/myblog_qtrung/tags/modern-javascript/</link>
-      <pubDate>Tue, 24 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/tags/modern-javascript/</guid>
       <description></description>
     </item>
     <item>
       <title>Programming</title>
       <link>http://localhost:1313/myblog_qtrung/tags/programming/</link>
-      <pubDate>Tue, 24 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/tags/programming/</guid>
       <description></description>
     </item>
     <item>
       <title>Concurrency</title>
       <link>http://localhost:1313/myblog_qtrung/tags/concurrency/</link>
-      <pubDate>Mon, 23 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/tags/concurrency/</guid>
       <description></description>
     </item>
     <item>
       <title>Java</title>
       <link>http://localhost:1313/myblog_qtrung/tags/java/</link>
-      <pubDate>Mon, 23 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/tags/java/</guid>
       <description></description>
     </item>
     <item>
       <title>Multithreading</title>
       <link>http://localhost:1313/myblog_qtrung/tags/multithreading/</link>
-      <pubDate>Mon, 23 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/tags/multithreading/</guid>
       <description></description>
     </item>
     <item>
       <title>Performance</title>
       <link>http://localhost:1313/myblog_qtrung/tags/performance/</link>
-      <pubDate>Mon, 23 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/tags/performance/</guid>
       <description></description>
     </item>
     <item>
       <title>Framework</title>
       <link>http://localhost:1313/myblog_qtrung/tags/framework/</link>
-      <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/tags/framework/</guid>
       <description></description>
     </item>
     <item>
       <title>Spring Boot</title>
       <link>http://localhost:1313/myblog_qtrung/tags/spring-boot/</link>
-      <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/tags/spring-boot/</guid>
       <description></description>
     </item>
     <item>
       <title>Web Development</title>
       <link>http://localhost:1313/myblog_qtrung/tags/web-development/</link>
-      <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/tags/web-development/</guid>
       <description></description>
     </item>
     <item>
       <title>Generics</title>
       <link>http://localhost:1313/myblog_qtrung/tags/generics/</link>
-      <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 21 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/tags/generics/</guid>
       <description></description>
     </item>
     <item>
       <title>Type Safety</title>
       <link>http://localhost:1313/myblog_qtrung/tags/type-safety/</link>
-      <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 21 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/tags/type-safety/</guid>
       <description></description>
     </item>
     <item>
       <title>AI</title>
       <link>http://localhost:1313/myblog_qtrung/tags/ai/</link>
-      <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/tags/ai/</guid>
       <description></description>
     </item>
     <item>
       <title>Functional Programming</title>
       <link>http://localhost:1313/myblog_qtrung/tags/functional-programming/</link>
-      <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/tags/functional-programming/</guid>
       <description></description>
     </item>
     <item>
       <title>Machine Learning</title>
       <link>http://localhost:1313/myblog_qtrung/tags/machine-learning/</link>
-      <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/tags/machine-learning/</guid>
       <description></description>
     </item>
     <item>
       <title>Neural Networks</title>
       <link>http://localhost:1313/myblog_qtrung/tags/neural-networks/</link>
-      <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/tags/neural-networks/</guid>
       <description></description>
     </item>
     <item>
       <title>Streams</title>
       <link>http://localhost:1313/myblog_qtrung/tags/streams/</link>
-      <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/tags/streams/</guid>
       <description></description>
     </item>
     <item>
       <title>Collections</title>
       <link>http://localhost:1313/myblog_qtrung/tags/collections/</link>
-      <pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/tags/collections/</guid>
       <description></description>
     </item>
     <item>
       <title>Data Structures</title>
       <link>http://localhost:1313/myblog_qtrung/tags/data-structures/</link>
-      <pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/tags/data-structures/</guid>
       <description></description>
     </item>
     <item>
       <title>Frontend</title>
       <link>http://localhost:1313/myblog_qtrung/tags/frontend/</link>
-      <pubDate>Wed, 18 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 18 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/tags/frontend/</guid>
       <description></description>
     </item>
     <item>
       <title>React</title>
       <link>http://localhost:1313/myblog_qtrung/tags/react/</link>
-      <pubDate>Wed, 18 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 18 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/tags/react/</guid>
       <description></description>
     </item>

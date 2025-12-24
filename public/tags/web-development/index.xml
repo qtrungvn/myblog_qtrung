@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Web Development on My New Hugo Site</title>
+    <title>Web Development on Trung Blog</title>
     <link>http://localhost:1313/myblog_qtrung/tags/web-development/</link>
-    <description>Recent content in Web Development on My New Hugo Site</description>
+    <description>Recent content in Web Development on Trung Blog</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 22 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <language>vi-vn</language>
+    <lastBuildDate>Mon, 22 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/myblog_qtrung/tags/web-development/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Spring Boot Cơ bản - Khởi tạo ứng dụng web nhanh chóng</title>
+      <title></title>
       <link>http://localhost:1313/myblog_qtrung/posts/spring-boot-basics/</link>
-      <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/posts/spring-boot-basics/</guid>
       <description>Hướng dẫn tạo ứng dụng Spring Boot đầu tiên với REST API, Dependency Injection và Auto-configuration.</description>
     </item>

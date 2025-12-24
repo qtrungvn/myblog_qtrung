@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on My New Hugo Site</title>
+    <title>Categories on Trung Blog</title>
     <link>http://localhost:1313/myblog_qtrung/categories/</link>
-    <description>Recent content in Categories on My New Hugo Site</description>
+    <description>Recent content in Categories on Trung Blog</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 27 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <language>vi-vn</language>
+    <lastBuildDate>Wed, 24 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/myblog_qtrung/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JavaScript</title>
       <link>http://localhost:1313/myblog_qtrung/categories/javascript/</link>
-      <pubDate>Fri, 27 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/categories/javascript/</guid>
       <description></description>
     </item>
     <item>
       <title>Java</title>
       <link>http://localhost:1313/myblog_qtrung/categories/java/</link>
-      <pubDate>Mon, 23 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/categories/java/</guid>
       <description></description>
     </item>
     <item>
       <title>Trí Tuệ Nhân Tạo</title>
       <link>http://localhost:1313/myblog_qtrung/categories/tr%C3%AD-tu%E1%BB%87-nh%C3%A2n-t%E1%BA%A1o/</link>
-      <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/categories/tr%C3%AD-tu%E1%BB%87-nh%C3%A2n-t%E1%BA%A1o/</guid>
       <description></description>
     </item>
     <item>
       <title>Web Development</title>
       <link>http://localhost:1313/myblog_qtrung/categories/web-development/</link>
-      <pubDate>Wed, 18 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 18 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/myblog_qtrung/categories/web-development/</guid>
       <description></description>
     </item>

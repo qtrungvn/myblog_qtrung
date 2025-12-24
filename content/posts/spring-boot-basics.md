@@ -1,13 +1,13 @@
 ---
-title: "Spring Boot Cơ bản - Khởi tạo ứng dụng web nhanh chóng"
-date: 2024-12-22T00:00:00Z
+title: ""
+date: 2025-12-22T00:00:00Z
 draft: false
 categories: ["Java"]
 tags: ["Spring Boot", "Java", "Web Development", "Framework"]
 summary: "Hướng dẫn tạo ứng dụng Spring Boot đầu tiên với REST API, Dependency Injection và Auto-configuration."
 ---
 
-# Spring Boot Cơ bản - Khởi tạo ứng dụng web nhanh chóng
+
 
 Spring Boot là một framework giúp phát triển ứng dụng Spring một cách nhanh chóng và dễ dàng. Nó loại bỏ hầu hết các cấu hình phức tạp của Spring truyền thống.
 

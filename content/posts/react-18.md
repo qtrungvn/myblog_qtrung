@@ -1,6 +1,6 @@
 ---
-title: "Hướng dẫn toàn diện về React 18 và các tính năng mới"
-date: 2024-12-18T00:00:00Z
+title: ""
+date: 2025-12-18T00:00:00Z
 draft: false
 categories: ["Web Development"]
 tags: ["React", "JavaScript", "Frontend"]

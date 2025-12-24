@@ -1,13 +1,13 @@
 ---
-title: "Async/Await - Xử lý Asynchronous Code một cách đồng bộ"
-date: 2024-12-25T00:00:00Z
+title: ""
+date: 2025-12-25T00:00:00Z
 draft: false
 categories: ["JavaScript"]
 tags: ["JavaScript", "Async", "Promises", "Asynchronous Programming"]
 summary: "Khám phá async/await - cách hiện đại và dễ đọc để xử lý asynchronous operations trong JavaScript."
 ---
 
-# Async/Await - Xử lý Asynchronous Code một cách đồng bộ
+
 
 Async/await là một tính năng của ES2017 giúp viết asynchronous code trông giống như synchronous code, làm cho nó dễ đọc và hiểu hơn. Đây là một bước tiến lớn so với callback hell và promise chains.
 

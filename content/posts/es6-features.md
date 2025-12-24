@@ -1,13 +1,13 @@
 ---
-title: "ES6 Features - Những tính năng mới quan trọng của JavaScript"
-date: 2024-12-24T00:00:00Z
+title: ""
+date: 2025-12-24T00:00:00Z
 draft: false
 categories: ["JavaScript"]
 tags: ["JavaScript", "ES6", "Modern JavaScript", "Programming"]
 summary: "Khám phá các tính năng mạnh mẽ của ES6: arrow functions, destructuring, modules, promises và nhiều hơn nữa."
 ---
 
-# ES6 Features - Những tính năng mới quan trọng của JavaScript
+
 
 ES6 (ECMAScript 2015) là một bản cập nhật lớn cho JavaScript, giới thiệu nhiều tính năng mới giúp code trở nên hiện đại và dễ đọc hơn. Hãy khám phá những tính năng quan trọng nhất.
 

@@ -1,13 +1,13 @@
 ---
-title: "JavaScript Promises - Xử lý Asynchronous Operations"
-date: 2024-12-26T00:00:00Z
+title: ""
+date: 2025-12-26T00:00:00Z
 draft: false
 categories: ["JavaScript"]
 tags: ["JavaScript", "Promises", "Asynchronous", "Async Programming"]
-summary: "Khám phá JavaScript Promises - cách hiện đại để xử lý asynchronous operations, tránh callback hell."
+summary: ""
 ---
 
-# JavaScript Promises - Xử lý Asynchronous Operations
+
 
 Promises là một tính năng của ES6 giúp xử lý asynchronous operations một cách dễ dàng và tránh được callback hell. Một Promise đại diện cho một giá trị có thể có trong tương lai.
 

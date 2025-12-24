@@ -1,13 +1,11 @@
 ---
-title: "Java Streams API - Xử lý dữ liệu hiệu quả"
-date: 2024-12-20T00:00:00Z
+title: ""
+date: 2025-12-20T00:00:00Z
 draft: false
 categories: ["Java"]
 tags: ["Java", "Streams", "Functional Programming"]
 summary: "Khám phá Java Streams API với các phép toán trung gian và cuối cùng để xử lý dữ liệu một cách khai báo."
 ---
-
-# Java Streams API - Xử lý dữ liệu hiệu quả
 
 Java Streams API, được giới thiệu từ Java 8, cung cấp một cách khai báo để xử lý dữ liệu. Streams cho phép thực hiện các phép toán phức tạp trên collections một cách dễ đọc và hiệu quả.
 

@@ -1,13 +1,11 @@
 ---
-title: "Java Multithreading - Lập trình đa luồng hiệu quả"
-date: 2024-12-23T00:00:00Z
+title: ""
+date: 2025-12-23T00:00:00Z
 draft: false
 categories: ["Java"]
 tags: ["Java", "Multithreading", "Concurrency", "Performance"]
 summary: "Khám phá Java Multithreading với Thread, Runnable, synchronized, và các công cụ concurrency hiện đại."
 ---
-
-# Java Multithreading - Lập trình đa luồng hiệu quả
 
 Multithreading cho phép chương trình thực hiện nhiều tác vụ đồng thời, tăng hiệu suất và responsiveness. Java cung cấp các API mạnh mẽ để làm việc với threads.
 

@@ -1,13 +1,11 @@
 ---
-title: "Java Collections Framework - Hướng dẫn toàn diện"
-date: 2024-12-19T00:00:00Z
+title: ""
+date: 2025-12-19T00:00:00Z
 draft: false
 categories: ["Java"]
 tags: ["Java", "Collections", "Data Structures"]
 summary: "Khám phá Java Collections Framework với ArrayList, HashMap, HashSet và các cấu trúc dữ liệu quan trọng khác."
 ---
-
-# Java Collections Framework - Hướng dẫn toàn diện
 
 Java Collections Framework là một trong những phần quan trọng nhất của Java, cung cấp các cấu trúc dữ liệu và thuật toán để lưu trữ và thao tác với dữ liệu một cách hiệu quả.
 
