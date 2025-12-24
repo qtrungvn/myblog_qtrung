@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spring Boot on My New Hugo Site</title>
+    <link>/tags/spring-boot/</link>
+    <description>Recent content in Spring Boot on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 22 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/spring-boot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring Boot Cơ bản - Khởi tạo ứng dụng web nhanh chóng</title>
+      <link>/posts/spring-boot-basics/</link>
+      <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>/posts/spring-boot-basics/</guid>
+      <description>Hướng dẫn tạo ứng dụng Spring Boot đầu tiên với REST API, Dependency Injection và Auto-configuration.</description>
+    </item>
+  </channel>
+</rss>

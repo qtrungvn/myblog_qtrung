@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Spring Boot Cơ bản - Khởi tạo ứng dụng web nhanh chóng</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    
+
+    <link rel="stylesheet" href="/css/main.min.49689da3cfe3cc0b12afb45776349f32d2eef4d5ad8244ce26fb7f01d91d5d43.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="/">Home</a>
+
+        <a href="/posts">Blog</a>
+
+        <a href="/about">About Me</a>
+
+        <a href="/contact">Contact</a>
+      </nav>
+      <button id="dark-mode-toggle"><i class="fas fa-moon"></i></button>
+    </header>
+
+    <main>
+<section class="page">
+  <div class="container">
+    <h1>Spring Boot Cơ bản - Khởi tạo ứng dụng web nhanh chóng</h1>
+    <div class="page-content"><h1 id="spring-boot-cơ-bản---khởi-tạo-ứng-dụng-web-nhanh-chóng">Spring Boot Cơ bản - Khởi tạo ứng dụng web nhanh chóng</h1>
+<p>Spring Boot là một framework giúp phát triển ứng dụng Spring một cách nhanh chóng và dễ dàng. Nó loại bỏ hầu hết các cấu hình phức tạp của Spring truyền thống.</p>
+<h2 id="tại-sao-spring-boot">Tại sao Spring Boot?</h2>
+<p>Spring Boot cung cấp:</p>
+<ul>
+<li><strong>Auto-configuration</strong>: Tự động cấu hình dựa trên dependencies</li>
+<li><strong>Standalone applications</strong>: Không cần external application server</li>
+<li><strong>Production-ready features</strong>: Metrics, health checks, externalized configuration</li>
+<li><strong>No code generation</strong>: Không cần generate code</li>
+<li><strong>Opinionated defaults</strong>: Cấu hình mặc định hợp lý</li>
+</ul>
+<h2 id="tạo-dự-án-spring-boot-đầu-tiên">Tạo dự án Spring Boot đầu tiên</h2>
+<h3 id="sử-dụng-spring-initializr">Sử dụng Spring Initializr</h3>
+<p>Truy cập <a href="https://start.spring.io/">https://start.spring.io/</a> và cấu hình:</p>
+<ul>
+<li><strong>Project</strong>: Maven Project</li>
+<li><strong>Language</strong>: Java</li>
+<li><strong>Spring Boot</strong>: 3.2.0 (hoặc phiên bản mới nhất)</li>
+<li><strong>Group</strong>: com.example</li>
+<li><strong>Artifact</strong>: demo</li>
+<li><strong>Name</strong>: demo</li>
+<li><strong>Description</strong>: Demo project for Spring Boot</li>
+<li><strong>Package name</strong>: com.example.demo</li>
+<li><strong>Packaging</strong>: Jar</li>
+<li><strong>Java</strong>: 17</li>
+</ul>
+<p><strong>Dependencies</strong>:</p>
+<ul>
+<li>Spring Web</li>
+<li>Spring Boot DevTools</li>
+</ul>
+<h3 id="cấu-trúc-dự-án">Cấu trúc dự án</h3>
+<pre tabindex="0"><code>src/
+├── main/
+│   ├── java/
+│   │   └── com/
+│   │       └── example/
+│   │           └── demo/
+│   │               ├── DemoApplication.java
+│   │               └── controller/
+│   │                   └── HelloController.java
+│   └── resources/
+│       ├── application.properties
+│       ├── static/
+│       └── templates/
+└── test/
+    └── java/
+        └── com/
+            └── example/
+                └── demo/
+                    └── DemoApplicationTests.java
+</code></pre><h2 id="main-application-class">Main Application Class</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.demo;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.boot.SpringApplication;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@SpringBootApplication</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DemoApplication</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        SpringApplication.<span style="color:#a6e22e">run</span>(DemoApplication.<span style="color:#a6e22e">class</span>, args);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>@SpringBootApplication</code> là một composite annotation bao gồm:</p>
+<ul>
+<li><code>@Configuration</code>: Đánh dấu class là source của bean definitions</li>
+<li><code>@EnableAutoConfiguration</code>: Cho phép auto-configuration</li>
+<li><code>@ComponentScan</code>: Quét các components trong package</li>
+</ul>
+<h2 id="tạo-rest-controller">Tạo REST Controller</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.demo.controller;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.web.bind.annotation.GetMapping;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.web.bind.annotation.PathVariable;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.web.bind.annotation.RequestParam;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.web.bind.annotation.RestController;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RestController</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloController</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GetMapping</span>(<span style="color:#e6db74">&#34;/&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">home</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Hello World!&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GetMapping</span>(<span style="color:#e6db74">&#34;/hello/{name}&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">hello</span>(<span style="color:#a6e22e">@PathVariable</span> String name) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Hello &#34;</span> <span style="color:#f92672">+</span> name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;!&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GetMapping</span>(<span style="color:#e6db74">&#34;/greeting&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">greeting</span>(<span style="color:#a6e22e">@RequestParam</span>(value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span>, defaultValue <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;World&#34;</span>) String name) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Hello &#34;</span> <span style="color:#f92672">+</span> name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;!&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="dependency-injection">Dependency Injection</h2>
+<p>Spring Boot sử dụng Dependency Injection để quản lý dependencies.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.demo.service;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.stereotype.Service;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GreetingService</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getGreeting</span>(String name) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Hello, &#34;</span> <span style="color:#f92672">+</span> name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;!&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.demo.controller;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.example.demo.service.GreetingService;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.web.bind.annotation.GetMapping;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.web.bind.annotation.RestController;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RestController</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GreetingController</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> GreetingService greetingService;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Constructor injection (khuyến khích)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">GreetingController</span>(GreetingService greetingService) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">greetingService</span> <span style="color:#f92672">=</span> greetingService;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GetMapping</span>(<span style="color:#e6db74">&#34;/greet/{name}&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">greet</span>(<span style="color:#a6e22e">@PathVariable</span> String name) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> greetingService.<span style="color:#a6e22e">getGreeting</span>(name);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="configuration-properties">Configuration Properties</h2>
+<p>Spring Boot cho phép externalize configuration.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.demo.config;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.boot.context.properties.ConfigurationProperties;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.stereotype.Component;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Component</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@ConfigurationProperties</span>(prefix <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;app&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppProperties</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Demo App&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;1.0.0&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Getters and setters</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getName</span>() { <span style="color:#66d9ef">return</span> name; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setName</span>(String name) { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> name; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getVersion</span>() { <span style="color:#66d9ef">return</span> version; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setVersion</span>(String version) { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">version</span> <span style="color:#f92672">=</span> version; }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Trong <code>application.properties</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">app.name</span><span style="color:#f92672">=</span><span style="color:#e6db74">My Awesome App</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">app.version</span><span style="color:#f92672">=</span><span style="color:#e6db74">2.0.0</span>
+</span></span></code></pre></div><h2 id="data-access-với-spring-data-jpa">Data Access với Spring Data JPA</h2>
+<p>Thêm dependencies:</p>
+<ul>
+<li>Spring Data JPA</li>
+<li>H2 Database (cho demo)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.demo.entity;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> jakarta.persistence.Entity;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> jakarta.persistence.GeneratedValue;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> jakarta.persistence.GenerationType;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> jakarta.persistence.Id;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Entity</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Id</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GeneratedValue</span>(strategy <span style="color:#f92672">=</span> GenerationType.<span style="color:#a6e22e">IDENTITY</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Long id;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String name;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String email;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Constructors, getters, setters</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">User</span>() {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">User</span>(String name, String email) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> name;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">email</span> <span style="color:#f92672">=</span> email;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Long <span style="color:#a6e22e">getId</span>() { <span style="color:#66d9ef">return</span> id; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setId</span>(Long id) { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> id; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getName</span>() { <span style="color:#66d9ef">return</span> name; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setName</span>(String name) { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> name; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getEmail</span>() { <span style="color:#66d9ef">return</span> email; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setEmail</span>(String email) { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">email</span> <span style="color:#f92672">=</span> email; }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.demo.repository;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.example.demo.entity.User;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.data.jpa.repository.JpaRepository;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.stereotype.Repository;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Repository</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">UserRepository</span> <span style="color:#66d9ef">extends</span> JpaRepository<span style="color:#f92672">&lt;</span>User, Long<span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Spring Data JPA sẽ tự động implement các methods cơ bản</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.demo.controller;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.example.demo.entity.User;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.example.demo.repository.UserRepository;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.web.bind.annotation.*;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.List;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RestController</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RequestMapping</span>(<span style="color:#e6db74">&#34;/api/users&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserController</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> UserRepository userRepository;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">UserController</span>(UserRepository userRepository) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">userRepository</span> <span style="color:#f92672">=</span> userRepository;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GetMapping</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getAllUsers</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> userRepository.<span style="color:#a6e22e">findAll</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GetMapping</span>(<span style="color:#e6db74">&#34;/{id}&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> User <span style="color:#a6e22e">getUserById</span>(<span style="color:#a6e22e">@PathVariable</span> Long id) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> userRepository.<span style="color:#a6e22e">findById</span>(id).<span style="color:#a6e22e">orElseThrow</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@PostMapping</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> User <span style="color:#a6e22e">createUser</span>(<span style="color:#a6e22e">@RequestBody</span> User user) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> userRepository.<span style="color:#a6e22e">save</span>(user);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@PutMapping</span>(<span style="color:#e6db74">&#34;/{id}&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> User <span style="color:#a6e22e">updateUser</span>(<span style="color:#a6e22e">@PathVariable</span> Long id, <span style="color:#a6e22e">@RequestBody</span> User user) {
+</span></span><span style="display:flex;"><span>        User existingUser <span style="color:#f92672">=</span> userRepository.<span style="color:#a6e22e">findById</span>(id).<span style="color:#a6e22e">orElseThrow</span>();
+</span></span><span style="display:flex;"><span>        existingUser.<span style="color:#a6e22e">setName</span>(user.<span style="color:#a6e22e">getName</span>());
+</span></span><span style="display:flex;"><span>        existingUser.<span style="color:#a6e22e">setEmail</span>(user.<span style="color:#a6e22e">getEmail</span>());
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> userRepository.<span style="color:#a6e22e">save</span>(existingUser);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@DeleteMapping</span>(<span style="color:#e6db74">&#34;/{id}&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">deleteUser</span>(<span style="color:#a6e22e">@PathVariable</span> Long id) {
+</span></span><span style="display:flex;"><span>        userRepository.<span style="color:#a6e22e">deleteById</span>(id);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="exception-handling">Exception Handling</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.demo.exception;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserNotFoundException</span> <span style="color:#66d9ef">extends</span> RuntimeException {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">UserNotFoundException</span>(Long id) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>(<span style="color:#e6db74">&#34;User not found with id: &#34;</span> <span style="color:#f92672">+</span> id);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.demo.controller;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.example.demo.exception.UserNotFoundException;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.http.HttpStatus;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.web.bind.annotation.ExceptionHandler;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.web.bind.annotation.ResponseStatus;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.web.bind.annotation.RestControllerAdvice;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RestControllerAdvice</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GlobalExceptionHandler</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@ExceptionHandler</span>(UserNotFoundException.<span style="color:#a6e22e">class</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@ResponseStatus</span>(HttpStatus.<span style="color:#a6e22e">NOT_FOUND</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> ErrorResponse <span style="color:#a6e22e">handleUserNotFoundException</span>(UserNotFoundException ex) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> ErrorResponse(ex.<span style="color:#a6e22e">getMessage</span>());
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@ExceptionHandler</span>(Exception.<span style="color:#a6e22e">class</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@ResponseStatus</span>(HttpStatus.<span style="color:#a6e22e">INTERNAL_SERVER_ERROR</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> ErrorResponse <span style="color:#a6e22e">handleGenericException</span>(Exception ex) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> ErrorResponse(<span style="color:#e6db74">&#34;An unexpected error occurred&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ErrorResponse</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String message;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ErrorResponse</span>(String message) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> message;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getMessage</span>() { <span style="color:#66d9ef">return</span> message; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setMessage</span>(String message) { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> message; }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Cập nhật UserController:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@GetMapping</span>(<span style="color:#e6db74">&#34;/{id}&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> User <span style="color:#a6e22e">getUserById</span>(<span style="color:#a6e22e">@PathVariable</span> Long id) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> userRepository.<span style="color:#a6e22e">findById</span>(id)
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">orElseThrow</span>(() <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">new</span> UserNotFoundException(id));
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="validation">Validation</h2>
+<p>Thêm dependency: Spring Boot Starter Validation</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.demo.entity;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> jakarta.persistence.Entity;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> jakarta.persistence.GeneratedValue;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> jakarta.persistence.GenerationType;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> jakarta.persistence.Id;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> jakarta.validation.constraints.Email;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> jakarta.validation.constraints.NotBlank;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Entity</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Id</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GeneratedValue</span>(strategy <span style="color:#f92672">=</span> GenerationType.<span style="color:#a6e22e">IDENTITY</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Long id;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@NotBlank</span>(message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Name is required&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String name;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@NotBlank</span>(message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Email is required&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Email</span>(message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Email should be valid&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String email;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Constructors, getters, setters</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Cập nhật Controller:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@PostMapping</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> User <span style="color:#a6e22e">createUser</span>(<span style="color:#a6e22e">@Valid</span> <span style="color:#a6e22e">@RequestBody</span> User user) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> userRepository.<span style="color:#a6e22e">save</span>(user);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="testing">Testing</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.demo;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.junit.jupiter.api.Test;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.boot.test.context.SpringBootTest;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@SpringBootTest</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DemoApplicationTests</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Test</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">contextLoads</span>() {
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.demo.controller;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.junit.jupiter.api.Test;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.beans.factory.annotation.Autowired;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.test.web.servlet.MockMvc;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import static</span> org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import static</span> org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import static</span> org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@WebMvcTest</span>(HelloController.<span style="color:#a6e22e">class</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloControllerTest</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Autowired</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> MockMvc mockMvc;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Test</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testHome</span>() <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        mockMvc.<span style="color:#a6e22e">perform</span>(get(<span style="color:#e6db74">&#34;/&#34;</span>))
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">andExpect</span>(status().<span style="color:#a6e22e">isOk</span>())
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">andExpect</span>(content().<span style="color:#a6e22e">string</span>(<span style="color:#e6db74">&#34;Hello World!&#34;</span>));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="application-properties">Application Properties</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#75715e"># Server configuration</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">server.port</span><span style="color:#f92672">=</span><span style="color:#e6db74">8080</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Database configuration (H2)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">spring.datasource.url</span><span style="color:#f92672">=</span><span style="color:#e6db74">jdbc:h2:mem:testdb</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">spring.datasource.driverClassName</span><span style="color:#f92672">=</span><span style="color:#e6db74">org.h2.Driver</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">spring.datasource.username</span><span style="color:#f92672">=</span><span style="color:#e6db74">sa</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">spring.datasource.password</span><span style="color:#f92672">=</span><span style="color:#e6db74">password</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">spring.jpa.database-platform</span><span style="color:#f92672">=</span><span style="color:#e6db74">org.hibernate.dialect.H2Dialect</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># JPA/Hibernate properties</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">spring.jpa.hibernate.ddl-auto</span><span style="color:#f92672">=</span><span style="color:#e6db74">create-drop</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">spring.jpa.show-sql</span><span style="color:#f92672">=</span><span style="color:#e6db74">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># H2 Console (for development)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">spring.h2.console.enabled</span><span style="color:#f92672">=</span><span style="color:#e6db74">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Logging</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">logging.level.com.example.demo</span><span style="color:#f92672">=</span><span style="color:#e6db74">DEBUG</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Application specific</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">app.name</span><span style="color:#f92672">=</span><span style="color:#e6db74">Spring Boot Demo</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">app.version</span><span style="color:#f92672">=</span><span style="color:#e6db74">1.0.0</span>
+</span></span></code></pre></div><h2 id="chạy-ứng-dụng">Chạy ứng dụng</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Chạy từ command line</span>
+</span></span><span style="display:flex;"><span>./mvnw spring-boot:run
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Hoặc với Maven</span>
+</span></span><span style="display:flex;"><span>mvn spring-boot:run
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Hoặc chạy JAR file</span>
+</span></span><span style="display:flex;"><span>java -jar target/demo-0.0.1-SNAPSHOT.jar
+</span></span></code></pre></div><h2 id="production-deployment">Production Deployment</h2>
+<p>Spring Boot có thể chạy như một standalone JAR:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Build JAR</span>
+</span></span><span style="display:flex;"><span>./mvnw clean package
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Chạy JAR</span>
+</span></span><span style="display:flex;"><span>java -jar target/demo-0.0.1-SNAPSHOT.jar
+</span></span></code></pre></div><h2 id="actuator-cho-monitoring">Actuator cho Monitoring</h2>
+<p>Thêm dependency: Spring Boot Actuator</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#75715e"># Actuator endpoints</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">management.endpoints.web.exposure.include</span><span style="color:#f92672">=</span><span style="color:#e6db74">health,info,metrics</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">management.endpoint.health.show-details</span><span style="color:#f92672">=</span><span style="color:#e6db74">when-authorized</span>
+</span></span></code></pre></div><p>Truy cập:</p>
+<ul>
+<li>Health: http://localhost:8080/actuator/health</li>
+<li>Info: http://localhost:8080/actuator/info</li>
+<li>Metrics: http://localhost:8080/actuator/metrics</li>
+</ul>
+<h2 id="kết-luận">Kết luận</h2>
+<p>Spring Boot giúp phát triển ứng dụng Java web một cách nhanh chóng với ít cấu hình. Nó cung cấp auto-configuration, embedded servers và production-ready features. Đây là nền tảng tuyệt vời để xây dựng microservices và ứng dụng doanh nghiệp.</p>
+</div>
+  </div>
+</section>
+</main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>My Blog</h3>
+          <p>
+            Khám phá những bài viết chất lượng về công nghệ, lập trình, và các
+            xu hướng mới nhất.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Liên kết nhanh</h3>
+          <ul>
+            <li><a href="/">Trang Chủ</a></li>
+            <li><a href="/about">Về tôi</a></li>
+            <li><a href="/posts">Blog</a></li>
+            <li><a href="/contact">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Danh mục</h3>
+          <ul>
+            <li><a href="/categories/web-development">Web Development</a></li>
+            <li><a href="/categories/trí-tuệ-nhân-tạo">AI</a></li>
+            <li><a href="/categories/java">Java</a></li>
+            <li><a href="/categories/javascript">JavaScript</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Kết nối</h3>
+          <div class="social-links">
+            <a href="https://www.facebook.com/trung.tran.572662"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/trungkg915/"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 My Blog. All rights reserved.</p>
+      </div>
+    </footer>
+    <script>
+      const toggleButton = document.getElementById("dark-mode-toggle");
+      const body = document.body;
+      const icon = toggleButton.querySelector("i");
+
+      
+      const currentTheme = localStorage.getItem("theme") || "light";
+      if (currentTheme === "dark") {
+        body.classList.add("dark-mode");
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+      }
+
+      toggleButton.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+        const theme = body.classList.contains("dark-mode") ? "dark" : "light";
+        localStorage.setItem("theme", theme);
+
+        
+        if (theme === "dark") {
+          icon.classList.remove("fa-moon");
+          icon.classList.add("fa-sun");
+        } else {
+          icon.classList.remove("fa-sun");
+          icon.classList.add("fa-moon");
+        }
+      });
+    </script>
+  </body>
+</html>

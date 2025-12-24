@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+
+    <title></title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    
+
+    <link rel="stylesheet" href="/css/main.min.49689da3cfe3cc0b12afb45776349f32d2eef4d5ad8244ce26fb7f01d91d5d43.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="/">Home</a>
+
+        <a href="/posts">Blog</a>
+
+        <a href="/about">About Me</a>
+
+        <a href="/contact">Contact</a>
+      </nav>
+      <button id="dark-mode-toggle"><i class="fas fa-moon"></i></button>
+    </header>
+
+    <main>
+
+<section class="about-page container">
+  <div></div><div class="about-avatar">
+    <img src="/images/Avatar.jpg" alt="Avatar" />
+  </div>
+  <div class="about-content">
+    <div class="about-text"><h2 id="hi--im-trung">HI , I&rsquo;m TRUNG</h2>
+<p>Mình là sinh viên Công nghệ Thông tin, đam mê <strong>lập trình web</strong>, <strong>backend</strong>, và <strong>xây dựng hệ thống</strong>.</p>
+<p>Hiện tại mình đang:</p>
+<ul>
+<li>Học và thực hành <strong>Java, JavaScript</strong></li>
+<li>Xây dựng <strong>blog cá nhân bằng Hugo</strong></li>
+<li>Tìm hiểu <strong>backend, API, database</strong></li>
+</ul>
+<h3 id="mục-tiêu">Mục tiêu</h3>
+<ul>
+<li>Trở thành Web Developer / Backend Developer</li>
+<li>Xây dựng các sản phẩm thực tế</li>
+<li>Chia sẻ kiến thức qua blog</li>
+</ul>
+<p>📫 <strong>Liên hệ:</strong></p>
+<ul>
+<li>Email: <a href="mailto:contact@trungblog.dev">contact@trungblog.dev</a></li>
+<li>GitHub: <a href="https://github.com/">https://github.com/</a></li>
+</ul>
+</div>
+  </div>
+  </div>
+</section>
+
+</main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>My Blog</h3>
+          <p>
+            Khám phá những bài viết chất lượng về công nghệ, lập trình, và các
+            xu hướng mới nhất.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Liên kết nhanh</h3>
+          <ul>
+            <li><a href="/">Trang Chủ</a></li>
+            <li><a href="/about">Về tôi</a></li>
+            <li><a href="/posts">Blog</a></li>
+            <li><a href="/contact">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Danh mục</h3>
+          <ul>
+            <li><a href="/categories/web-development">Web Development</a></li>
+            <li><a href="/categories/trí-tuệ-nhân-tạo">AI</a></li>
+            <li><a href="/categories/java">Java</a></li>
+            <li><a href="/categories/javascript">JavaScript</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Kết nối</h3>
+          <div class="social-links">
+            <a href="https://www.facebook.com/trung.tran.572662"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/trungkg915/"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 My Blog. All rights reserved.</p>
+      </div>
+    </footer>
+    <script>
+      const toggleButton = document.getElementById("dark-mode-toggle");
+      const body = document.body;
+      const icon = toggleButton.querySelector("i");
+
+      
+      const currentTheme = localStorage.getItem("theme") || "light";
+      if (currentTheme === "dark") {
+        body.classList.add("dark-mode");
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+      }
+
+      toggleButton.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+        const theme = body.classList.contains("dark-mode") ? "dark" : "light";
+        localStorage.setItem("theme", theme);
+
+        
+        if (theme === "dark") {
+          icon.classList.remove("fa-moon");
+          icon.classList.add("fa-sun");
+        } else {
+          icon.classList.remove("fa-sun");
+          icon.classList.add("fa-moon");
+        }
+      });
+    </script>
+  </body>
+</html>

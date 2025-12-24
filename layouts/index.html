@@ -1,0 +1,91 @@
+{{ define "main" }}
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Chào mừng đến với My Blog</h1>
+    <p>
+      Khám phá những bài viết chất lượng về công nghệ, lập trình, và các xu
+      hướng mới nhất trong thế giới công nghệ thông tin.
+    </p>
+    <div class="hero-buttons">
+      <a href="#posts" class="btn btn-primary">Khám phá ngay</a>
+      <a href="/about" class="btn btn-outline">Về chúng tôi</a>
+    </div>
+  </div>
+</section>
+
+<!-- Main Content -->
+<div class="container">
+  <div class="grid">
+    <!-- Blog Posts -->
+    <div class="posts-section">
+      <!-- Featured Post -->
+      <section class="featured">
+        <h2>Bài viết nổi bật</h2>
+        {{ range first 1 .Site.RegularPages }}
+        <article class="featured-card">
+          <img
+            src="https://images.unsplash.com/photo-1618758992354-364bbe07b3bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlJTIwQUl8ZW58MXx8fHwxNzY2NDYzNDM0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+            alt="{{ .Title }}"
+          />
+          <div class="card-content">
+            <span class="category">{{ index .Params.categories 0 }}</span>
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <p>{{ .Summary }}</p>
+            <div class="meta">
+              <span>{{ .Date.Format "2 Tháng 1, 2006" }}</span>
+              <span>{{ .ReadingTime }} phút đọc</span>
+            </div>
+          </div>
+        </article>
+        {{ end }}
+      </section>
+
+      <!-- Recent Posts -->
+      <section class="recent-posts">
+        <h2>Bài viết mới nhất</h2>
+        <div class="posts-grid" id="posts">
+          {{ range after 1 (first 3 .Site.RegularPages) }}
+          <article class="post-card">
+            <img
+              src="https://images.unsplash.com/photo-1593720213428-28a5b9e94613?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkZXZlbG9wbWVudHxlbnwxfHx8fDE3NjY0NTYxNDV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+              alt="{{ .Title }}"
+            />
+            <div class="card-content">
+              <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            </div>
+          </article>
+          {{ end }}
+        </div>
+        <div class="load-more">
+          <button class="btn btn-outline">Xem thêm bài viết</button>
+        </div>
+      </section>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <h3>Về tôi</h3>
+        <img src="/images/Avatar.jpg" alt="Avatar" class="avatar" />
+        <p>Hi, I'm Trung</p>
+        <p>Chuyên gia công nghệ, đam mê lập trình và chia sẻ kiến thức.</p>
+      </div>
+      <div class="sidebar-widget">
+        <h3>Danh mục</h3>
+        <ul>
+          {{ range .Site.Taxonomies.categories }}
+          <li>
+            <a href="{{ .Page.RelPermalink }}"
+              >{{ .Page.Title }} ({{ .Count }})</a
+            >
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </aside>
+  </div>
+</div>
+
+{{ end }}

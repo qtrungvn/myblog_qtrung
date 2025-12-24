@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Java Collections Framework - Hướng dẫn toàn diện</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    
+
+    <link rel="stylesheet" href="/css/main.min.49689da3cfe3cc0b12afb45776349f32d2eef4d5ad8244ce26fb7f01d91d5d43.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="/">Home</a>
+
+        <a href="/posts">Blog</a>
+
+        <a href="/about">About Me</a>
+
+        <a href="/contact">Contact</a>
+      </nav>
+      <button id="dark-mode-toggle"><i class="fas fa-moon"></i></button>
+    </header>
+
+    <main>
+<section class="page">
+  <div class="container">
+    <h1>Java Collections Framework - Hướng dẫn toàn diện</h1>
+    <div class="page-content"><h1 id="java-collections-framework---hướng-dẫn-toàn-diện">Java Collections Framework - Hướng dẫn toàn diện</h1>
+<p>Java Collections Framework là một trong những phần quan trọng nhất của Java, cung cấp các cấu trúc dữ liệu và thuật toán để lưu trữ và thao tác với dữ liệu một cách hiệu quả.</p>
+<h2 id="arraylist---danh-sách-động">ArrayList - Danh sách động</h2>
+<p>ArrayList là một implementation của List interface, cho phép lưu trữ các phần tử có thể thay đổi kích thước.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.ArrayList;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.List;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ArrayListExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> fruits <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Thêm phần tử</span>
+</span></span><span style="display:flex;"><span>        fruits.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;Apple&#34;</span>);
+</span></span><span style="display:flex;"><span>        fruits.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;Banana&#34;</span>);
+</span></span><span style="display:flex;"><span>        fruits.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;Orange&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Truy cập phần tử</span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(fruits.<span style="color:#a6e22e">get</span>(0)); <span style="color:#75715e">// Apple</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Duyệt qua danh sách</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (String fruit : fruits) {
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(fruit);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="hashmap---bảng-băm">HashMap - Bảng băm</h2>
+<p>HashMap lưu trữ dữ liệu dưới dạng key-value pairs, cho phép truy cập nhanh chóng theo key.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.HashMap;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Map;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HashMapExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        Map<span style="color:#f92672">&lt;</span>String, Integer<span style="color:#f92672">&gt;</span> studentGrades <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Thêm dữ liệu</span>
+</span></span><span style="display:flex;"><span>        studentGrades.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;Alice&#34;</span>, 95);
+</span></span><span style="display:flex;"><span>        studentGrades.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;Bob&#34;</span>, 87);
+</span></span><span style="display:flex;"><span>        studentGrades.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;Charlie&#34;</span>, 92);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Truy cập dữ liệu</span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Alice&#39;s grade: &#34;</span> <span style="color:#f92672">+</span> studentGrades.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;Alice&#34;</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Duyệt qua HashMap</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (Map.<span style="color:#a6e22e">Entry</span><span style="color:#f92672">&lt;</span>String, Integer<span style="color:#f92672">&gt;</span> entry : studentGrades.<span style="color:#a6e22e">entrySet</span>()) {
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(entry.<span style="color:#a6e22e">getKey</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;: &#34;</span> <span style="color:#f92672">+</span> entry.<span style="color:#a6e22e">getValue</span>());
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="hashset---tập-hợp-không-trùng-lặp">HashSet - Tập hợp không trùng lặp</h2>
+<p>HashSet lưu trữ các phần tử duy nhất, không cho phép phần tử trùng lặp.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.HashSet;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Set;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HashSetExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        Set<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> uniqueWords <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashSet<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        uniqueWords.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;Java&#34;</span>);
+</span></span><span style="display:flex;"><span>        uniqueWords.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;Python&#34;</span>);
+</span></span><span style="display:flex;"><span>        uniqueWords.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;Java&#34;</span>); <span style="color:#75715e">// Sẽ bị bỏ qua vì trùng lặp</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Size: &#34;</span> <span style="color:#f92672">+</span> uniqueWords.<span style="color:#a6e22e">size</span>()); <span style="color:#75715e">// 2</span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(uniqueWords); <span style="color:#75715e">// [Java, Python]</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="linkedlist---danh-sách-liên-kết">LinkedList - Danh sách liên kết</h2>
+<p>LinkedList là implementation của List và Deque interface, phù hợp cho việc thêm/xóa phần tử ở đầu và cuối danh sách.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.LinkedList;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Queue;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LinkedListExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        Queue<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> queue <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedList<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Thêm phần tử vào cuối hàng đợi</span>
+</span></span><span style="display:flex;"><span>        queue.<span style="color:#a6e22e">offer</span>(<span style="color:#e6db74">&#34;First&#34;</span>);
+</span></span><span style="display:flex;"><span>        queue.<span style="color:#a6e22e">offer</span>(<span style="color:#e6db74">&#34;Second&#34;</span>);
+</span></span><span style="display:flex;"><span>        queue.<span style="color:#a6e22e">offer</span>(<span style="color:#e6db74">&#34;Third&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Lấy phần tử đầu tiên</span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(queue.<span style="color:#a6e22e">poll</span>()); <span style="color:#75715e">// First</span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(queue.<span style="color:#a6e22e">poll</span>()); <span style="color:#75715e">// Second</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="treeset---tập-hợp-có-thứ-tự">TreeSet - Tập hợp có thứ tự</h2>
+<p>TreeSet lưu trữ các phần tử theo thứ tự tự nhiên hoặc theo Comparator được cung cấp.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.TreeSet;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TreeSetExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        TreeSet<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> numbers <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TreeSet<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        numbers.<span style="color:#a6e22e">add</span>(5);
+</span></span><span style="display:flex;"><span>        numbers.<span style="color:#a6e22e">add</span>(2);
+</span></span><span style="display:flex;"><span>        numbers.<span style="color:#a6e22e">add</span>(8);
+</span></span><span style="display:flex;"><span>        numbers.<span style="color:#a6e22e">add</span>(1);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(numbers); <span style="color:#75715e">// [1, 2, 5, 8]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Các phương thức hữu ích</span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;First: &#34;</span> <span style="color:#f92672">+</span> numbers.<span style="color:#a6e22e">first</span>());
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Last: &#34;</span> <span style="color:#f92672">+</span> numbers.<span style="color:#a6e22e">last</span>());
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Lower than 5: &#34;</span> <span style="color:#f92672">+</span> numbers.<span style="color:#a6e22e">lower</span>(5));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="khi-nào-sử-dụng-collection-nào">Khi nào sử dụng Collection nào?</h2>
+<ul>
+<li><strong>ArrayList</strong>: Khi cần truy cập ngẫu nhiên nhanh và thêm/xóa ở cuối danh sách</li>
+<li><strong>LinkedList</strong>: Khi cần thêm/xóa ở đầu/cuối danh sách thường xuyên</li>
+<li><strong>HashMap</strong>: Khi cần ánh xạ key-value với truy cập nhanh</li>
+<li><strong>HashSet</strong>: Khi cần lưu trữ các phần tử duy nhất không quan trọng thứ tự</li>
+<li><strong>TreeSet</strong>: Khi cần tập hợp có thứ tự</li>
+</ul>
+<h2 id="generics-trong-collections">Generics trong Collections</h2>
+<p>Collections Framework sử dụng Generics để đảm bảo type safety:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Không sử dụng Generics (không khuyến khích)</span>
+</span></span><span style="display:flex;"><span>List list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList();
+</span></span><span style="display:flex;"><span>list.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;String&#34;</span>);
+</span></span><span style="display:flex;"><span>list.<span style="color:#a6e22e">add</span>(123); <span style="color:#75715e">// Có thể gây lỗi runtime</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Sử dụng Generics (khuyến khích)</span>
+</span></span><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> stringList <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>stringList.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;String&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// stringList.add(123); // Lỗi compile-time</span>
+</span></span></code></pre></div><h2 id="kết-luận">Kết luận</h2>
+<p>Java Collections Framework cung cấp các công cụ mạnh mẽ để làm việc với dữ liệu. Việc lựa chọn Collection phù hợp có thể ảnh hưởng đáng kể đến hiệu suất ứng dụng của bạn.</p>
+</div>
+  </div>
+</section>
+</main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>My Blog</h3>
+          <p>
+            Khám phá những bài viết chất lượng về công nghệ, lập trình, và các
+            xu hướng mới nhất.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Liên kết nhanh</h3>
+          <ul>
+            <li><a href="/">Trang Chủ</a></li>
+            <li><a href="/about">Về tôi</a></li>
+            <li><a href="/posts">Blog</a></li>
+            <li><a href="/contact">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Danh mục</h3>
+          <ul>
+            <li><a href="/categories/web-development">Web Development</a></li>
+            <li><a href="/categories/trí-tuệ-nhân-tạo">AI</a></li>
+            <li><a href="/categories/java">Java</a></li>
+            <li><a href="/categories/javascript">JavaScript</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Kết nối</h3>
+          <div class="social-links">
+            <a href="https://www.facebook.com/trung.tran.572662"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/trungkg915/"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 My Blog. All rights reserved.</p>
+      </div>
+    </footer>
+    <script>
+      const toggleButton = document.getElementById("dark-mode-toggle");
+      const body = document.body;
+      const icon = toggleButton.querySelector("i");
+
+      
+      const currentTheme = localStorage.getItem("theme") || "light";
+      if (currentTheme === "dark") {
+        body.classList.add("dark-mode");
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+      }
+
+      toggleButton.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+        const theme = body.classList.contains("dark-mode") ? "dark" : "light";
+        localStorage.setItem("theme", theme);
+
+        
+        if (theme === "dark") {
+          icon.classList.remove("fa-moon");
+          icon.classList.add("fa-sun");
+        } else {
+          icon.classList.remove("fa-sun");
+          icon.classList.add("fa-moon");
+        }
+      });
+    </script>
+  </body>
+</html>
