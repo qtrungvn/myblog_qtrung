@@ -1,0 +1,468 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><title>JavaScript Promises - Xử lý Asynchronous Operations</title><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css><link rel=stylesheet href=https://qtrungvn.github.io/myblog_qtrung/css/main.min.49689da3cfe3cc0b12afb45776349f32d2eef4d5ad8244ce26fb7f01d91d5d43.css></head><body><header><nav><a href=../../>Home</a>
+<a href=../../posts>Blog</a>
+<a href=../../about>About Me</a>
+<a href=../../contact>Contact</a></nav><button id=dark-mode-toggle><i class="fas fa-moon"></i></button></header><main><section class=page><div class=container><h1>JavaScript Promises - Xử lý Asynchronous Operations</h1><div class=page-content><h1 id=javascript-promises---xử-lý-asynchronous-operations>JavaScript Promises - Xử lý Asynchronous Operations</h1><p>Promises là một tính năng của ES6 giúp xử lý asynchronous operations một cách dễ dàng và tránh được callback hell. Một Promise đại diện cho một giá trị có thể có trong tương lai.</p><h2 id=cơ-bản-về-promises>Cơ bản về Promises</h2><h3 id=tạo-và-sử-dụng-promise>Tạo và sử dụng Promise</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// Tạo một Promise
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>promise</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Promise((<span style=color:#a6e22e>resolve</span>, <span style=color:#a6e22e>reject</span>) =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// Asynchronous operation
+</span></span></span><span style=display:flex><span>  <span style=color:#a6e22e>setTimeout</span>(() =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>success</span> <span style=color:#f92672>=</span> Math.<span style=color:#a6e22e>random</span>() <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0.5</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>success</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>resolve</span>(<span style=color:#e6db74>&#34;Operation successful!&#34;</span>); <span style=color:#75715e>// Thành công
+</span></span></span><span style=display:flex><span>    } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>reject</span>(<span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>&#34;Operation failed!&#34;</span>)); <span style=color:#75715e>// Thất bại
+</span></span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }, <span style=color:#ae81ff>1000</span>);
+</span></span><span style=display:flex><span>});
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Sử dụng Promise
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>promise</span>
+</span></span><span style=display:flex><span>  .<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>result</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Success:&#34;</span>, <span style=color:#a6e22e>result</span>);
+</span></span><span style=display:flex><span>  })
+</span></span><span style=display:flex><span>  .<span style=color:#66d9ef>catch</span>((<span style=color:#a6e22e>error</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#34;Error:&#34;</span>, <span style=color:#a6e22e>error</span>.<span style=color:#a6e22e>message</span>);
+</span></span><span style=display:flex><span>  });
+</span></span></code></pre></div><h3 id=promise-states>Promise States</h3><p>Một Promise có thể ở một trong ba trạng thái:</p><ol><li><strong>Pending</strong>: Chưa hoàn thành</li><li><strong>Fulfilled</strong>: Hoàn thành thành công</li><li><strong>Rejected</strong>: Hoàn thành với lỗi</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>promise</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Promise((<span style=color:#a6e22e>resolve</span>, <span style=color:#a6e22e>reject</span>) =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Promise created - Pending state&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>setTimeout</span>(() =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>resolve</span>(<span style=color:#e6db74>&#34;Data received&#34;</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Promise resolved - Fulfilled state&#34;</span>);
+</span></span><span style=display:flex><span>  }, <span style=color:#ae81ff>1000</span>);
+</span></span><span style=display:flex><span>});
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>promise</span>.<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>result</span>) =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Result:&#34;</span>, <span style=color:#a6e22e>result</span>);
+</span></span><span style=display:flex><span>});
+</span></span></code></pre></div><h2 id=methods-của-promise>Methods của Promise</h2><h3 id=then-và-catch>.then() và .catch()</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// .then() xử lý success case
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// .catch() xử lý error case
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>&#34;https://api.example.com/data&#34;</span>)
+</span></span><span style=display:flex><span>  .<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>response</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span><span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>ok</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>&#34;Network response was not ok&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>json</span>();
+</span></span><span style=display:flex><span>  })
+</span></span><span style=display:flex><span>  .<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>data</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Data received:&#34;</span>, <span style=color:#a6e22e>data</span>);
+</span></span><span style=display:flex><span>  })
+</span></span><span style=display:flex><span>  .<span style=color:#66d9ef>catch</span>((<span style=color:#a6e22e>error</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#34;Error:&#34;</span>, <span style=color:#a6e22e>error</span>);
+</span></span><span style=display:flex><span>  });
+</span></span></code></pre></div><h3 id=finally>.finally()</h3><p><code>.finally()</code> được gọi bất kể Promise thành công hay thất bại.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>fetchData</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>&#34;https://api.example.com/data&#34;</span>).<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>response</span>) =&gt;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>json</span>()
+</span></span><span style=display:flex><span>  );
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>fetchData</span>()
+</span></span><span style=display:flex><span>  .<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>data</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Data:&#34;</span>, <span style=color:#a6e22e>data</span>);
+</span></span><span style=display:flex><span>  })
+</span></span><span style=display:flex><span>  .<span style=color:#66d9ef>catch</span>((<span style=color:#a6e22e>error</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#34;Error:&#34;</span>, <span style=color:#a6e22e>error</span>);
+</span></span><span style=display:flex><span>  })
+</span></span><span style=display:flex><span>  .<span style=color:#66d9ef>finally</span>(() =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Operation completed (success or failure)&#34;</span>);
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Cleanup code here
+</span></span></span><span style=display:flex><span>  });
+</span></span></code></pre></div><h2 id=promise-chaining>Promise Chaining</h2><p>Promises có thể được chain lại với nhau để thực hiện các async operations tuần tự.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// Ví dụ: Lấy user data, sau đó lấy posts của user đó
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>getUser</span>(<span style=color:#a6e22e>userId</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>`https://jsonplaceholder.typicode.com/users/</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>userId</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>).<span style=color:#a6e22e>then</span>(
+</span></span><span style=display:flex><span>    (<span style=color:#a6e22e>response</span>) =&gt; <span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>json</span>()
+</span></span><span style=display:flex><span>  );
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>getUserPosts</span>(<span style=color:#a6e22e>userId</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fetch</span>(
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>`https://jsonplaceholder.typicode.com/posts?userId=</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>userId</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>
+</span></span><span style=display:flex><span>  ).<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>response</span>) =&gt; <span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>json</span>());
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>getUser</span>(<span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>  .<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>user</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;User:&#34;</span>, <span style=color:#a6e22e>user</span>.<span style=color:#a6e22e>name</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>getUserPosts</span>(<span style=color:#a6e22e>user</span>.<span style=color:#a6e22e>id</span>);
+</span></span><span style=display:flex><span>  })
+</span></span><span style=display:flex><span>  .<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>posts</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Posts count:&#34;</span>, <span style=color:#a6e22e>posts</span>.<span style=color:#a6e22e>length</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>posts</span>;
+</span></span><span style=display:flex><span>  })
+</span></span><span style=display:flex><span>  .<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>posts</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Có thể chain thêm
+</span></span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>posts</span>.<span style=color:#a6e22e>map</span>((<span style=color:#a6e22e>post</span>) =&gt; <span style=color:#a6e22e>post</span>.<span style=color:#a6e22e>title</span>);
+</span></span><span style=display:flex><span>  })
+</span></span><span style=display:flex><span>  .<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>titles</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Post titles:&#34;</span>, <span style=color:#a6e22e>titles</span>);
+</span></span><span style=display:flex><span>  })
+</span></span><span style=display:flex><span>  .<span style=color:#66d9ef>catch</span>((<span style=color:#a6e22e>error</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#34;Error in chain:&#34;</span>, <span style=color:#a6e22e>error</span>);
+</span></span><span style=display:flex><span>  });
+</span></span></code></pre></div><h2 id=static-methods>Static Methods</h2><h3 id=promiseresolve>Promise.resolve()</h3><p>Tạo một Promise đã được resolve.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// Tạo resolved Promise
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>resolvedPromise</span> <span style=color:#f92672>=</span> Promise.<span style=color:#a6e22e>resolve</span>(<span style=color:#e6db74>&#34;Immediate value&#34;</span>);
+</span></span><span style=display:flex><span><span style=color:#a6e22e>resolvedPromise</span>.<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>value</span>) =&gt; <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>value</span>)); <span style=color:#75715e>// &#39;Immediate value&#39;
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Convert non-Promise value thành Promise
+</span></span></span><span style=display:flex><span>Promise.<span style=color:#a6e22e>resolve</span>(<span style=color:#ae81ff>42</span>).<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>value</span>) =&gt; <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>value</span>)); <span style=color:#75715e>// 42
+</span></span></span></code></pre></div><h3 id=promisereject>Promise.reject()</h3><p>Tạo một Promise đã bị reject.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>rejectedPromise</span> <span style=color:#f92672>=</span> Promise.<span style=color:#a6e22e>reject</span>(<span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>&#34;Something went wrong&#34;</span>));
+</span></span><span style=display:flex><span><span style=color:#a6e22e>rejectedPromise</span>.<span style=color:#66d9ef>catch</span>((<span style=color:#a6e22e>error</span>) =&gt; <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#a6e22e>error</span>.<span style=color:#a6e22e>message</span>));
+</span></span></code></pre></div><h3 id=promiseall>Promise.all()</h3><p>Chờ tất cả Promises hoàn thành (thành công hoặc thất bại).</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>promise1</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>&#34;https://api.example.com/users&#34;</span>);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>promise2</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>&#34;https://api.example.com/posts&#34;</span>);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>promise3</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>&#34;https://api.example.com/comments&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Promise.<span style=color:#a6e22e>all</span>([<span style=color:#a6e22e>promise1</span>, <span style=color:#a6e22e>promise2</span>, <span style=color:#a6e22e>promise3</span>])
+</span></span><span style=display:flex><span>  .<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>responses</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Tất cả responses đều thành công
+</span></span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> Promise.<span style=color:#a6e22e>all</span>(<span style=color:#a6e22e>responses</span>.<span style=color:#a6e22e>map</span>((<span style=color:#a6e22e>response</span>) =&gt; <span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>json</span>()));
+</span></span><span style=display:flex><span>  })
+</span></span><span style=display:flex><span>  .<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>data</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> [<span style=color:#a6e22e>users</span>, <span style=color:#a6e22e>posts</span>, <span style=color:#a6e22e>comments</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>data</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Users:&#34;</span>, <span style=color:#a6e22e>users</span>.<span style=color:#a6e22e>length</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Posts:&#34;</span>, <span style=color:#a6e22e>posts</span>.<span style=color:#a6e22e>length</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Comments:&#34;</span>, <span style=color:#a6e22e>comments</span>.<span style=color:#a6e22e>length</span>);
+</span></span><span style=display:flex><span>  })
+</span></span><span style=display:flex><span>  .<span style=color:#66d9ef>catch</span>((<span style=color:#a6e22e>error</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Một trong các Promise thất bại
+</span></span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#34;One of the requests failed:&#34;</span>, <span style=color:#a6e22e>error</span>);
+</span></span><span style=display:flex><span>  });
+</span></span></code></pre></div><h3 id=promiseallsettled-es2020>Promise.allSettled() (ES2020)</h3><p>Chờ tất cả Promises hoàn thành, bất kể thành công hay thất bại.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>promises</span> <span style=color:#f92672>=</span> [
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>&#34;https://api.example.com/users&#34;</span>),
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>&#34;https://api.example.com/posts&#34;</span>),
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>&#34;https://api.example.com/invalid-endpoint&#34;</span>), <span style=color:#75715e>// Sẽ fail
+</span></span></span><span style=display:flex><span>];
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Promise.<span style=color:#a6e22e>allSettled</span>(<span style=color:#a6e22e>promises</span>).<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>results</span>) =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>results</span>.<span style=color:#a6e22e>forEach</span>((<span style=color:#a6e22e>result</span>, <span style=color:#a6e22e>index</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>result</span>.<span style=color:#a6e22e>status</span> <span style=color:#f92672>===</span> <span style=color:#e6db74>&#34;fulfilled&#34;</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>`Promise </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>index</span><span style=color:#e6db74>}</span><span style=color:#e6db74> succeeded:`</span>, <span style=color:#a6e22e>result</span>.<span style=color:#a6e22e>value</span>);
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>`Promise </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>index</span><span style=color:#e6db74>}</span><span style=color:#e6db74> failed:`</span>, <span style=color:#a6e22e>result</span>.<span style=color:#a6e22e>reason</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>});
+</span></span></code></pre></div><h3 id=promiserace>Promise.race()</h3><p>Trả về Promise đầu tiên hoàn thành (thành công hoặc thất bại).</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>fastApi</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>&#34;https://fast-api.example.com/data&#34;</span>);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>slowApi</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>&#34;https://slow-api.example.com/data&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Promise.<span style=color:#a6e22e>race</span>([<span style=color:#a6e22e>fastApi</span>, <span style=color:#a6e22e>slowApi</span>])
+</span></span><span style=display:flex><span>  .<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>response</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Fastest API responded&#34;</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>json</span>();
+</span></span><span style=display:flex><span>  })
+</span></span><span style=display:flex><span>  .<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>data</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Data from fastest API:&#34;</span>, <span style=color:#a6e22e>data</span>);
+</span></span><span style=display:flex><span>  })
+</span></span><span style=display:flex><span>  .<span style=color:#66d9ef>catch</span>((<span style=color:#a6e22e>error</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#34;Fastest API failed:&#34;</span>, <span style=color:#a6e22e>error</span>);
+</span></span><span style=display:flex><span>  });
+</span></span></code></pre></div><h3 id=promiseany-es2021>Promise.any() (ES2021)</h3><p>Trả về Promise đầu tiên thành công.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>api1</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>&#34;https://api1.example.com/data&#34;</span>);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>api2</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>&#34;https://api2.example.com/data&#34;</span>);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>api3</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>&#34;https://api3.example.com/data&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Promise.<span style=color:#a6e22e>any</span>([<span style=color:#a6e22e>api1</span>, <span style=color:#a6e22e>api2</span>, <span style=color:#a6e22e>api3</span>])
+</span></span><span style=display:flex><span>  .<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>response</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;First successful API response&#34;</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>json</span>();
+</span></span><span style=display:flex><span>  })
+</span></span><span style=display:flex><span>  .<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>data</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Data from first successful API:&#34;</span>, <span style=color:#a6e22e>data</span>);
+</span></span><span style=display:flex><span>  })
+</span></span><span style=display:flex><span>  .<span style=color:#66d9ef>catch</span>((<span style=color:#a6e22e>error</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Tất cả APIs đều thất bại
+</span></span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#34;All APIs failed:&#34;</span>, <span style=color:#a6e22e>error</span>);
+</span></span><span style=display:flex><span>  });
+</span></span></code></pre></div><h2 id=tạo-promise-based-functions>Tạo Promise-based Functions</h2><h3 id=convert-callback-based-function-thành-promise>Convert callback-based function thành Promise</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// Callback-based function
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>readFile</span>(<span style=color:#a6e22e>filename</span>, <span style=color:#a6e22e>callback</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// Giả lập async file reading
+</span></span></span><span style=display:flex><span>  <span style=color:#a6e22e>setTimeout</span>(() =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>filename</span> <span style=color:#f92672>===</span> <span style=color:#e6db74>&#34;valid.txt&#34;</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>callback</span>(<span style=color:#66d9ef>null</span>, <span style=color:#e6db74>&#34;File content&#34;</span>);
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>callback</span>(<span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>&#34;File not found&#34;</span>));
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }, <span style=color:#ae81ff>1000</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Convert to Promise-based
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>readFilePromise</span>(<span style=color:#a6e22e>filename</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> Promise((<span style=color:#a6e22e>resolve</span>, <span style=color:#a6e22e>reject</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>readFile</span>(<span style=color:#a6e22e>filename</span>, (<span style=color:#a6e22e>error</span>, <span style=color:#a6e22e>data</span>) =&gt; {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>error</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>reject</span>(<span style=color:#a6e22e>error</span>);
+</span></span><span style=display:flex><span>      } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>resolve</span>(<span style=color:#a6e22e>data</span>);
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    });
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Sử dụng
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>readFilePromise</span>(<span style=color:#e6db74>&#34;valid.txt&#34;</span>)
+</span></span><span style=display:flex><span>  .<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>content</span>) =&gt; <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;File content:&#34;</span>, <span style=color:#a6e22e>content</span>))
+</span></span><span style=display:flex><span>  .<span style=color:#66d9ef>catch</span>((<span style=color:#a6e22e>error</span>) =&gt; <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#34;Error:&#34;</span>, <span style=color:#a6e22e>error</span>.<span style=color:#a6e22e>message</span>));
+</span></span></code></pre></div><h3 id=promisify-utility-function>Promisify utility function</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>promisify</span>(<span style=color:#a6e22e>originalFunction</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>function</span> (...<span style=color:#a6e22e>args</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> Promise((<span style=color:#a6e22e>resolve</span>, <span style=color:#a6e22e>reject</span>) =&gt; {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>originalFunction</span>(...<span style=color:#a6e22e>args</span>, (<span style=color:#a6e22e>error</span>, <span style=color:#a6e22e>result</span>) =&gt; {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>error</span>) {
+</span></span><span style=display:flex><span>          <span style=color:#a6e22e>reject</span>(<span style=color:#a6e22e>error</span>);
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>          <span style=color:#a6e22e>resolve</span>(<span style=color:#a6e22e>result</span>);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>      });
+</span></span><span style=display:flex><span>    });
+</span></span><span style=display:flex><span>  };
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Sử dụng
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>readFileAsync</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>promisify</span>(<span style=color:#a6e22e>readFile</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>readFileAsync</span>(<span style=color:#e6db74>&#34;valid.txt&#34;</span>)
+</span></span><span style=display:flex><span>  .<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>content</span>) =&gt; <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>content</span>))
+</span></span><span style=display:flex><span>  .<span style=color:#66d9ef>catch</span>((<span style=color:#a6e22e>error</span>) =&gt; <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#a6e22e>error</span>));
+</span></span></code></pre></div><h2 id=error-handling-patterns>Error Handling Patterns</h2><h3 id=centralized-error-handling>Centralized Error Handling</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ApiClient</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>async</span> <span style=color:#a6e22e>request</span>(<span style=color:#a6e22e>url</span>, <span style=color:#a6e22e>options</span> <span style=color:#f92672>=</span> {}) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>response</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>fetch</span>(<span style=color:#a6e22e>url</span>, <span style=color:#a6e22e>options</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span><span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>ok</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>`HTTP </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>status</span><span style=color:#e6db74>}</span><span style=color:#e6db74>: </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>statusText</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>);
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>json</span>();
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>catch</span> (<span style=color:#a6e22e>error</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#75715e>// Log error
+</span></span></span><span style=display:flex><span>      <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>`API request failed for </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>url</span><span style=color:#e6db74>}</span><span style=color:#e6db74>:`</span>, <span style=color:#a6e22e>error</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      <span style=color:#75715e>// Re-throw để caller có thể handle
+</span></span></span><span style=display:flex><span>      <span style=color:#66d9ef>throw</span> <span style=color:#a6e22e>error</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>api</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ApiClient</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Tất cả requests đều có error handling tự động
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>api</span>
+</span></span><span style=display:flex><span>  .<span style=color:#a6e22e>request</span>(<span style=color:#e6db74>&#34;/users&#34;</span>)
+</span></span><span style=display:flex><span>  .<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>users</span>) =&gt; <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>users</span>))
+</span></span><span style=display:flex><span>  .<span style=color:#66d9ef>catch</span>((<span style=color:#a6e22e>error</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Error đã được log trong ApiClient
+</span></span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Failed to fetch users&#34;</span>);
+</span></span><span style=display:flex><span>  });
+</span></span></code></pre></div><h3 id=retry-mechanism>Retry Mechanism</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>retryPromise</span>(<span style=color:#a6e22e>fn</span>, <span style=color:#a6e22e>maxRetries</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span>, <span style=color:#a6e22e>delay</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>1000</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> Promise((<span style=color:#a6e22e>resolve</span>, <span style=color:#a6e22e>reject</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>attempt</span>(<span style=color:#a6e22e>retriesLeft</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>fn</span>()
+</span></span><span style=display:flex><span>        .<span style=color:#a6e22e>then</span>(<span style=color:#a6e22e>resolve</span>)
+</span></span><span style=display:flex><span>        .<span style=color:#66d9ef>catch</span>((<span style=color:#a6e22e>error</span>) =&gt; {
+</span></span><span style=display:flex><span>          <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>retriesLeft</span> <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>`Retrying... </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>retriesLeft</span><span style=color:#e6db74>}</span><span style=color:#e6db74> attempts left`</span>);
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>setTimeout</span>(() =&gt; <span style=color:#a6e22e>attempt</span>(<span style=color:#a6e22e>retriesLeft</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>), <span style=color:#a6e22e>delay</span>);
+</span></span><span style=display:flex><span>          } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>reject</span>(<span style=color:#a6e22e>error</span>);
+</span></span><span style=display:flex><span>          }
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>attempt</span>(<span style=color:#a6e22e>maxRetries</span>);
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Sử dụng
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>unreliableRequest</span> <span style=color:#f92672>=</span> () =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> Promise((<span style=color:#a6e22e>resolve</span>, <span style=color:#a6e22e>reject</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 70% chance of failure
+</span></span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (Math.<span style=color:#a6e22e>random</span>() <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0.3</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>resolve</span>(<span style=color:#e6db74>&#34;Success!&#34;</span>);
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>reject</span>(<span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>&#34;Request failed&#34;</span>));
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>retryPromise</span>(<span style=color:#a6e22e>unreliableRequest</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>500</span>)
+</span></span><span style=display:flex><span>  .<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>result</span>) =&gt; <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Final result:&#34;</span>, <span style=color:#a6e22e>result</span>))
+</span></span><span style=display:flex><span>  .<span style=color:#66d9ef>catch</span>((<span style=color:#a6e22e>error</span>) =&gt; <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#34;All retries failed:&#34;</span>, <span style=color:#a6e22e>error</span>));
+</span></span></code></pre></div><h2 id=real-world-examples>Real-world Examples</h2><h3 id=sequential-api-calls>Sequential API Calls</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>processUserWorkflow</span>(<span style=color:#a6e22e>userId</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 1. Lấy thông tin user
+</span></span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>user</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>getUser</span>(<span style=color:#a6e22e>userId</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 2. Lấy danh sách posts của user
+</span></span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>posts</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>getUserPosts</span>(<span style=color:#a6e22e>userId</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 3. Lấy comments cho mỗi post
+</span></span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>postsWithComments</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> Promise.<span style=color:#a6e22e>all</span>(
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>posts</span>.<span style=color:#a6e22e>map</span>(<span style=color:#66d9ef>async</span> (<span style=color:#a6e22e>post</span>) =&gt; {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>comments</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>getPostComments</span>(<span style=color:#a6e22e>post</span>.<span style=color:#a6e22e>id</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> { ...<span style=color:#a6e22e>post</span>, <span style=color:#a6e22e>comments</span> };
+</span></span><span style=display:flex><span>      })
+</span></span><span style=display:flex><span>    );
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 4. Tính thống kê
+</span></span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>stats</span> <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>user</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>user</span>.<span style=color:#a6e22e>name</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>totalPosts</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>posts</span>.<span style=color:#a6e22e>length</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>totalComments</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>postsWithComments</span>.<span style=color:#a6e22e>reduce</span>(
+</span></span><span style=display:flex><span>        (<span style=color:#a6e22e>sum</span>, <span style=color:#a6e22e>post</span>) =&gt; <span style=color:#a6e22e>sum</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>post</span>.<span style=color:#a6e22e>comments</span>.<span style=color:#a6e22e>length</span>,
+</span></span><span style=display:flex><span>        <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>      ),
+</span></span><span style=display:flex><span>    };
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>stats</span>;
+</span></span><span style=display:flex><span>  } <span style=color:#66d9ef>catch</span> (<span style=color:#a6e22e>error</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#34;Workflow failed:&#34;</span>, <span style=color:#a6e22e>error</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>throw</span> <span style=color:#a6e22e>error</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Helper functions (giả lập)
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>getUser</span>(<span style=color:#a6e22e>id</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>`https://jsonplaceholder.typicode.com/users/</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>id</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>).<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>r</span>) =&gt;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>r</span>.<span style=color:#a6e22e>json</span>()
+</span></span><span style=display:flex><span>  );
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>getUserPosts</span>(<span style=color:#a6e22e>userId</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fetch</span>(
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>`https://jsonplaceholder.typicode.com/posts?userId=</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>userId</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>
+</span></span><span style=display:flex><span>  ).<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>r</span>) =&gt; <span style=color:#a6e22e>r</span>.<span style=color:#a6e22e>json</span>());
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>getPostComments</span>(<span style=color:#a6e22e>postId</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fetch</span>(
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>`https://jsonplaceholder.typicode.com/comments?postId=</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>postId</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>
+</span></span><span style=display:flex><span>  ).<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>r</span>) =&gt; <span style=color:#a6e22e>r</span>.<span style=color:#a6e22e>json</span>());
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=timeout-với-promise>Timeout với Promise</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>withTimeout</span>(<span style=color:#a6e22e>promise</span>, <span style=color:#a6e22e>timeoutMs</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>timeoutPromise</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Promise((<span style=color:#a6e22e>_</span>, <span style=color:#a6e22e>reject</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>setTimeout</span>(() =&gt; <span style=color:#a6e22e>reject</span>(<span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>&#34;Operation timed out&#34;</span>)), <span style=color:#a6e22e>timeoutMs</span>);
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> Promise.<span style=color:#a6e22e>race</span>([<span style=color:#a6e22e>promise</span>, <span style=color:#a6e22e>timeoutPromise</span>]);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Sử dụng
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>slowOperation</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Promise((<span style=color:#a6e22e>resolve</span>) =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>setTimeout</span>(() =&gt; <span style=color:#a6e22e>resolve</span>(<span style=color:#e6db74>&#34;Slow result&#34;</span>), <span style=color:#ae81ff>3000</span>);
+</span></span><span style=display:flex><span>});
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>withTimeout</span>(<span style=color:#a6e22e>slowOperation</span>, <span style=color:#ae81ff>2000</span>)
+</span></span><span style=display:flex><span>  .<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>result</span>) =&gt; <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Result:&#34;</span>, <span style=color:#a6e22e>result</span>))
+</span></span><span style=display:flex><span>  .<span style=color:#66d9ef>catch</span>((<span style=color:#a6e22e>error</span>) =&gt; <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Error:&#34;</span>, <span style=color:#a6e22e>error</span>.<span style=color:#a6e22e>message</span>)); <span style=color:#75715e>// &#34;Operation timed out&#34;
+</span></span></span></code></pre></div><h3 id=promise-based-file-upload>Promise-based File Upload</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>uploadFile</span>(<span style=color:#a6e22e>file</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>formData</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>FormData</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>formData</span>.<span style=color:#a6e22e>append</span>(<span style=color:#e6db74>&#34;file&#34;</span>, <span style=color:#a6e22e>file</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>&#34;/upload&#34;</span>, {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>method</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;POST&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>body</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>formData</span>,
+</span></span><span style=display:flex><span>  }).<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>response</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span><span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>ok</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>`Upload failed: </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>statusText</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>json</span>();
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Sử dụng với progress (sử dụng XMLHttpRequest)
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>uploadFileWithProgress</span>(<span style=color:#a6e22e>file</span>, <span style=color:#a6e22e>onProgress</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> Promise((<span style=color:#a6e22e>resolve</span>, <span style=color:#a6e22e>reject</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>xhr</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>XMLHttpRequest</span>();
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>formData</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>FormData</span>();
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>formData</span>.<span style=color:#a6e22e>append</span>(<span style=color:#e6db74>&#34;file&#34;</span>, <span style=color:#a6e22e>file</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>upload</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#34;progress&#34;</span>, (<span style=color:#a6e22e>event</span>) =&gt; {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>lengthComputable</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#a6e22e>onProgress</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>percentComplete</span> <span style=color:#f92672>=</span> (<span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>loaded</span> <span style=color:#f92672>/</span> <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>total</span>) <span style=color:#f92672>*</span> <span style=color:#ae81ff>100</span>;
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>onProgress</span>(<span style=color:#a6e22e>percentComplete</span>);
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    });
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#34;load&#34;</span>, () =&gt; {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>status</span> <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>200</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>status</span> <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>300</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>resolve</span>(<span style=color:#a6e22e>JSON</span>.<span style=color:#a6e22e>parse</span>(<span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>responseText</span>));
+</span></span><span style=display:flex><span>      } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>reject</span>(<span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>`Upload failed: </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>statusText</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>));
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    });
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#34;error&#34;</span>, () =&gt; {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>reject</span>(<span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>&#34;Upload failed&#34;</span>));
+</span></span><span style=display:flex><span>    });
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>open</span>(<span style=color:#e6db74>&#34;POST&#34;</span>, <span style=color:#e6db74>&#34;/upload&#34;</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>send</span>(<span style=color:#a6e22e>formData</span>);
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Sử dụng
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>fileInput</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>getElementById</span>(<span style=color:#e6db74>&#34;fileInput&#34;</span>);
+</span></span><span style=display:flex><span><span style=color:#a6e22e>fileInput</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#34;change&#34;</span>, <span style=color:#66d9ef>async</span> (<span style=color:#a6e22e>event</span>) =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>file</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>target</span>.<span style=color:#a6e22e>files</span>[<span style=color:#ae81ff>0</span>];
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>file</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>result</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>uploadFileWithProgress</span>(<span style=color:#a6e22e>file</span>, (<span style=color:#a6e22e>progress</span>) =&gt; {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>`Upload progress: </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>progress</span>.<span style=color:#a6e22e>toFixed</span>(<span style=color:#ae81ff>2</span>)<span style=color:#e6db74>}</span><span style=color:#e6db74>%`</span>);
+</span></span><span style=display:flex><span>      });
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;Upload successful:&#34;</span>, <span style=color:#a6e22e>result</span>);
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>catch</span> (<span style=color:#a6e22e>error</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#34;Upload failed:&#34;</span>, <span style=color:#a6e22e>error</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>});
+</span></span></code></pre></div><h2 id=best-practices>Best Practices</h2><h3 id=1-luôn-handle-errors>1. Luôn handle errors</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// ❌ Bad
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>fetchData</span>().<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>data</span>) =&gt; <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>data</span>));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// ✅ Good
+</span></span></span><span style=display:flex><span><span style=color:#a6e22e>fetchData</span>()
+</span></span><span style=display:flex><span>  .<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>data</span>) =&gt; <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>data</span>))
+</span></span><span style=display:flex><span>  .<span style=color:#66d9ef>catch</span>((<span style=color:#a6e22e>error</span>) =&gt; <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#34;Error:&#34;</span>, <span style=color:#a6e22e>error</span>));
+</span></span></code></pre></div><h3 id=2-trả-về-promises-từ-functions>2. Trả về Promises từ functions</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// ❌ Bad - inconsistent API
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>getData</span>(<span style=color:#a6e22e>callback</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// Sometimes returns Promise, sometimes uses callback
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// ✅ Good - always return Promise
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>getData</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>&#34;/api/data&#34;</span>).<span style=color:#a6e22e>then</span>((<span style=color:#a6e22e>response</span>) =&gt; <span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>json</span>());
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=3-sử-dụng-promiseall-cho-parallel-operations>3. Sử dụng Promise.all cho parallel operations</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// ❌ Bad - sequential
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>getAllData</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>users</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>getUsers</span>();
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>posts</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>getPosts</span>();
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>comments</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>getComments</span>();
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> { <span style=color:#a6e22e>users</span>, <span style=color:#a6e22e>posts</span>, <span style=color:#a6e22e>comments</span> };
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// ✅ Good - parallel
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>getAllData</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> [<span style=color:#a6e22e>users</span>, <span style=color:#a6e22e>posts</span>, <span style=color:#a6e22e>comments</span>] <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> Promise.<span style=color:#a6e22e>all</span>([
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>getUsers</span>(),
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>getPosts</span>(),
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>getComments</span>(),
+</span></span><span style=display:flex><span>  ]);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> { <span style=color:#a6e22e>users</span>, <span style=color:#a6e22e>posts</span>, <span style=color:#a6e22e>comments</span> };
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=4-tránh-promise-constructor-anti-patterns>4. Tránh Promise constructor anti-patterns</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// ❌ Bad - Promise constructor anti-pattern
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>badAsyncOperation</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> Promise((<span style=color:#a6e22e>resolve</span>, <span style=color:#a6e22e>reject</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>someAsyncOperation</span>((<span style=color:#a6e22e>error</span>, <span style=color:#a6e22e>result</span>) =&gt; {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>error</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>reject</span>(<span style=color:#a6e22e>error</span>);
+</span></span><span style=display:flex><span>      } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>resolve</span>(<span style=color:#a6e22e>result</span>);
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    });
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// ✅ Good - use util.promisify or manual promisification
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>util</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>require</span>(<span style=color:#e6db74>&#34;util&#34;</span>);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>promisifiedOperation</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>util</span>.<span style=color:#a6e22e>promisify</span>(<span style=color:#a6e22e>someAsyncOperation</span>);
+</span></span></code></pre></div><h2 id=kết-luận>Kết luận</h2><p>Promises đã cách mạng hóa cách chúng ta xử lý asynchronous operations trong JavaScript. Chúng giúp tránh callback hell, cung cấp error handling tốt hơn và cho phép chain operations một cách dễ dàng. Khi kết hợp với async/await, Promises tạo nên một hệ thống asynchronous programming mạnh mẽ và dễ sử dụng.</p><p>Hãy bắt đầu sử dụng Promises trong code của bạn để viết asynchronous code tốt hơn!</p></div></div></section></main><footer><div class=footer-content><div class=footer-section><h3>My Blog</h3><p>Khám phá những bài viết chất lượng về công nghệ, lập trình, và các
+xu hướng mới nhất.</p></div><div class=footer-section><h3>Liên kết nhanh</h3><ul><li><a href=../../>Trang Chủ</a></li><li><a href=../../about>Về tôi</a></li><li><a href=../../posts>Blog</a></li><li><a href=../../contact>Liên hệ</a></li></ul></div><div class=footer-section><h3>Danh mục</h3><ul><li><a href=../../categories/web-development>Web Development</a></li><li><a href=../../categories/trí-tuệ-nhân-tạo>AI</a></li><li><a href=../../categories/java>Java</a></li><li><a href=../../categories/javascript>JavaScript</a></li></ul></div><div class=footer-section><h3>Kết nối</h3><div class=social-links><a href=https://www.facebook.com/trung.tran.572662><i class="fab fa-facebook"></i></a>
+<a href=#><i class="fab fa-twitter"></i></a>
+<a href=https://www.instagram.com/trungkg915/><i class="fab fa-instagram"></i></a>
+<a href=#><i class="fab fa-github"></i></a></div></div></div><div class=footer-bottom><p>&copy; 2025 My Blog. All rights reserved.</p></div></footer><script>const toggleButton=document.getElementById("dark-mode-toggle"),body=document.body,icon=toggleButton.querySelector("i"),currentTheme=localStorage.getItem("theme")||"light";currentTheme==="dark"&&(body.classList.add("dark-mode"),icon.classList.remove("fa-moon"),icon.classList.add("fa-sun")),toggleButton.addEventListener("click",()=>{body.classList.toggle("dark-mode");const e=body.classList.contains("dark-mode")?"dark":"light";localStorage.setItem("theme",e),e==="dark"?(icon.classList.remove("fa-moon"),icon.classList.add("fa-sun")):(icon.classList.remove("fa-sun"),icon.classList.add("fa-moon"))})</script></body></html>

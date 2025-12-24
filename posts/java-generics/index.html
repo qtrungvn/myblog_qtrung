@@ -1,0 +1,289 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><title>Java Generics - Type Safety và Code Reusability</title><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css><link rel=stylesheet href=https://qtrungvn.github.io/myblog_qtrung/css/main.min.49689da3cfe3cc0b12afb45776349f32d2eef4d5ad8244ce26fb7f01d91d5d43.css></head><body><header><nav><a href=../../>Home</a>
+<a href=../../posts>Blog</a>
+<a href=../../about>About Me</a>
+<a href=../../contact>Contact</a></nav><button id=dark-mode-toggle><i class="fas fa-moon"></i></button></header><main><section class=page><div class=container><h1>Java Generics - Type Safety và Code Reusability</h1><div class=page-content><h1 id=java-generics---type-safety-và-code-reusability>Java Generics - Type Safety và Code Reusability</h1><p>Java Generics, được giới thiệu từ Java 5, cho phép viết code có thể hoạt động với nhiều kiểu dữ liệu khác nhau một cách type-safe. Generics giúp phát hiện lỗi ở compile-time thay vì runtime.</p><h2 id=tại-sao-cần-generics>Tại sao cần Generics?</h2><p>Trước khi có Generics, chúng ta thường sử dụng Object type cho các cấu trúc dữ liệu tổng quát:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#75715e>// Không sử dụng Generics - không type-safe</span>
+</span></span><span style=display:flex><span>List list <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ArrayList();
+</span></span><span style=display:flex><span>list.<span style=color:#a6e22e>add</span>(<span style=color:#e6db74>&#34;Hello&#34;</span>);
+</span></span><span style=display:flex><span>list.<span style=color:#a6e22e>add</span>(123); <span style=color:#75715e>// Có thể thêm bất kỳ kiểu nào</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>String str <span style=color:#f92672>=</span> (String) list.<span style=color:#a6e22e>get</span>(0); <span style=color:#75715e>// Cần cast</span>
+</span></span><span style=display:flex><span>Integer num <span style=color:#f92672>=</span> (Integer) list.<span style=color:#a6e22e>get</span>(1); <span style=color:#75715e>// ClassCastException tiềm ẩn</span>
+</span></span></code></pre></div><p>Với Generics, code trở nên type-safe và dễ đọc hơn:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#75715e>// Sử dụng Generics - type-safe</span>
+</span></span><span style=display:flex><span>List<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> list <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ArrayList<span style=color:#f92672>&lt;&gt;</span>();
+</span></span><span style=display:flex><span>list.<span style=color:#a6e22e>add</span>(<span style=color:#e6db74>&#34;Hello&#34;</span>);
+</span></span><span style=display:flex><span><span style=color:#75715e>// list.add(123); // Lỗi compile-time</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>String str <span style=color:#f92672>=</span> list.<span style=color:#a6e22e>get</span>(0); <span style=color:#75715e>// Không cần cast</span>
+</span></span></code></pre></div><h2 id=generic-classes>Generic Classes</h2><p>Generic classes cho phép định nghĩa class với type parameters.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Box</span><span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> T value;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>Box</span>(T value) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>value</span> <span style=color:#f92672>=</span> value;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> T <span style=color:#a6e22e>getValue</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> value;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>setValue</span>(T value) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>value</span> <span style=color:#f92672>=</span> value;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Sử dụng</span>
+</span></span><span style=display:flex><span>Box<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> stringBox <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Box<span style=color:#f92672>&lt;&gt;</span>(<span style=color:#e6db74>&#34;Hello World&#34;</span>);
+</span></span><span style=display:flex><span>Box<span style=color:#f92672>&lt;</span>Integer<span style=color:#f92672>&gt;</span> intBox <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Box<span style=color:#f92672>&lt;&gt;</span>(42);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>String str <span style=color:#f92672>=</span> stringBox.<span style=color:#a6e22e>getValue</span>(); <span style=color:#75715e>// Không cần cast</span>
+</span></span><span style=display:flex><span>Integer num <span style=color:#f92672>=</span> intBox.<span style=color:#a6e22e>getValue</span>(); <span style=color:#75715e>// Không cần cast</span>
+</span></span></code></pre></div><h3 id=ví-dụ-thực-tế-pair-class>Ví dụ thực tế: Pair Class</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Pair</span><span style=color:#f92672>&lt;</span>K, V<span style=color:#f92672>&gt;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> K key;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> V value;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>Pair</span>(K key, V value) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>key</span> <span style=color:#f92672>=</span> key;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>value</span> <span style=color:#f92672>=</span> value;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> K <span style=color:#a6e22e>getKey</span>() { <span style=color:#66d9ef>return</span> key; }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> V <span style=color:#a6e22e>getValue</span>() { <span style=color:#66d9ef>return</span> value; }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>toString</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;(&#34;</span> <span style=color:#f92672>+</span> key <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;, &#34;</span> <span style=color:#f92672>+</span> value <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;)&#34;</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Sử dụng</span>
+</span></span><span style=display:flex><span>Pair<span style=color:#f92672>&lt;</span>String, Integer<span style=color:#f92672>&gt;</span> student <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Pair<span style=color:#f92672>&lt;&gt;</span>(<span style=color:#e6db74>&#34;Alice&#34;</span>, 95);
+</span></span><span style=display:flex><span>Pair<span style=color:#f92672>&lt;</span>String, String<span style=color:#f92672>&gt;</span> mapping <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Pair<span style=color:#f92672>&lt;&gt;</span>(<span style=color:#e6db74>&#34;key&#34;</span>, <span style=color:#e6db74>&#34;value&#34;</span>);
+</span></span></code></pre></div><h2 id=generic-methods>Generic Methods</h2><p>Generic methods cho phép định nghĩa methods với type parameters riêng biệt.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Utility</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Generic method</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>printArray</span>(T<span style=color:#f92672>[]</span> array) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (T element : array) {
+</span></span><span style=display:flex><span>            System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>print</span>(element <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34; &#34;</span>);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Generic method với multiple type parameters</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#f92672>&lt;</span>K, V<span style=color:#f92672>&gt;</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>printMap</span>(Map<span style=color:#f92672>&lt;</span>K, V<span style=color:#f92672>&gt;</span> map) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (Map.<span style=color:#a6e22e>Entry</span><span style=color:#f92672>&lt;</span>K, V<span style=color:#f92672>&gt;</span> entry : map.<span style=color:#a6e22e>entrySet</span>()) {
+</span></span><span style=display:flex><span>            System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(entry.<span style=color:#a6e22e>getKey</span>() <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34; -&gt; &#34;</span> <span style=color:#f92672>+</span> entry.<span style=color:#a6e22e>getValue</span>());
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Generic method với bounded type parameter</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#f92672>&lt;</span>T <span style=color:#66d9ef>extends</span> Comparable<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;&gt;</span> T <span style=color:#a6e22e>findMax</span>(T<span style=color:#f92672>[]</span> array) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (array <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span> <span style=color:#f92672>||</span> array.<span style=color:#a6e22e>length</span> <span style=color:#f92672>==</span> 0) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>null</span>;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        T max <span style=color:#f92672>=</span> array<span style=color:#f92672>[</span>0<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 1; i <span style=color:#f92672>&lt;</span> array.<span style=color:#a6e22e>length</span>; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (array<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span>.<span style=color:#a6e22e>compareTo</span>(max) <span style=color:#f92672>&gt;</span> 0) {
+</span></span><span style=display:flex><span>                max <span style=color:#f92672>=</span> array<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> max;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Sử dụng</span>
+</span></span><span style=display:flex><span>Integer<span style=color:#f92672>[]</span> numbers <span style=color:#f92672>=</span> {1, 3, 2, 5, 4};
+</span></span><span style=display:flex><span>String<span style=color:#f92672>[]</span> strings <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;Apple&#34;</span>, <span style=color:#e6db74>&#34;Banana&#34;</span>, <span style=color:#e6db74>&#34;Cherry&#34;</span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Utility.<span style=color:#a6e22e>printArray</span>(numbers); <span style=color:#75715e>// 1 3 2 5 4</span>
+</span></span><span style=display:flex><span>Utility.<span style=color:#a6e22e>printArray</span>(strings); <span style=color:#75715e>// Apple Banana Cherry</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Integer maxNumber <span style=color:#f92672>=</span> Utility.<span style=color:#a6e22e>findMax</span>(numbers);
+</span></span><span style=display:flex><span>String maxString <span style=color:#f92672>=</span> Utility.<span style=color:#a6e22e>findMax</span>(strings);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;Max number: &#34;</span> <span style=color:#f92672>+</span> maxNumber); <span style=color:#75715e>// 5</span>
+</span></span><span style=display:flex><span>System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;Max string: &#34;</span> <span style=color:#f92672>+</span> maxString); <span style=color:#75715e>// Cherry</span>
+</span></span></code></pre></div><h2 id=bounded-type-parameters>Bounded Type Parameters</h2><p>Bounded type parameters giới hạn các kiểu có thể được sử dụng làm type arguments.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#75715e>// Upper bounded wildcard</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#f92672>&lt;</span>T <span style=color:#66d9ef>extends</span> Number<span style=color:#f92672>&gt;</span> <span style=color:#66d9ef>double</span> <span style=color:#a6e22e>sum</span>(List<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> numbers) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>double</span> total <span style=color:#f92672>=</span> 0.<span style=color:#a6e22e>0</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (T number : numbers) {
+</span></span><span style=display:flex><span>        total <span style=color:#f92672>+=</span> number.<span style=color:#a6e22e>doubleValue</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> total;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Multiple bounds</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>SerializableComparable</span><span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> <span style=color:#66d9ef>extends</span> Serializable, Comparable<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> {}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#f92672>&lt;</span>T <span style=color:#66d9ef>extends</span> Serializable <span style=color:#f92672>&amp;</span> Comparable<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;&gt;</span> T <span style=color:#a6e22e>findMax</span>(List<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> list) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> list.<span style=color:#a6e22e>stream</span>().<span style=color:#a6e22e>max</span>(Comparable::compareTo).<span style=color:#a6e22e>orElse</span>(<span style=color:#66d9ef>null</span>);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=wildcards>Wildcards</h2><p>Wildcards (?) cho phép linh hoạt hơn trong việc sử dụng generics.</p><h3 id=unbounded-wildcard>Unbounded Wildcard</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>printList</span>(List<span style=color:#f92672>&lt;?&gt;</span> list) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (Object item : list) {
+</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>print</span>(item <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34; &#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>();
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Sử dụng</span>
+</span></span><span style=display:flex><span>List<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> strings <span style=color:#f92672>=</span> Arrays.<span style=color:#a6e22e>asList</span>(<span style=color:#e6db74>&#34;A&#34;</span>, <span style=color:#e6db74>&#34;B&#34;</span>, <span style=color:#e6db74>&#34;C&#34;</span>);
+</span></span><span style=display:flex><span>List<span style=color:#f92672>&lt;</span>Integer<span style=color:#f92672>&gt;</span> numbers <span style=color:#f92672>=</span> Arrays.<span style=color:#a6e22e>asList</span>(1, 2, 3);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>printList(strings); <span style=color:#75715e>// A B C</span>
+</span></span><span style=display:flex><span>printList(numbers); <span style=color:#75715e>// 1 2 3</span>
+</span></span></code></pre></div><h3 id=upper-bounded-wildcard>Upper Bounded Wildcard</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>double</span> <span style=color:#a6e22e>sumOfList</span>(List<span style=color:#f92672>&lt;?</span> <span style=color:#66d9ef>extends</span> Number<span style=color:#f92672>&gt;</span> list) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>double</span> sum <span style=color:#f92672>=</span> 0.<span style=color:#a6e22e>0</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (Number number : list) {
+</span></span><span style=display:flex><span>        sum <span style=color:#f92672>+=</span> number.<span style=color:#a6e22e>doubleValue</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> sum;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Sử dụng</span>
+</span></span><span style=display:flex><span>List<span style=color:#f92672>&lt;</span>Integer<span style=color:#f92672>&gt;</span> ints <span style=color:#f92672>=</span> Arrays.<span style=color:#a6e22e>asList</span>(1, 2, 3);
+</span></span><span style=display:flex><span>List<span style=color:#f92672>&lt;</span>Double<span style=color:#f92672>&gt;</span> doubles <span style=color:#f92672>=</span> Arrays.<span style=color:#a6e22e>asList</span>(1.<span style=color:#a6e22e>0</span>, 2.<span style=color:#a6e22e>0</span>, 3.<span style=color:#a6e22e>0</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(sumOfList(ints)); <span style=color:#75715e>// 6.0</span>
+</span></span><span style=display:flex><span>System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(sumOfList(doubles)); <span style=color:#75715e>// 6.0</span>
+</span></span></code></pre></div><h3 id=lower-bounded-wildcard>Lower Bounded Wildcard</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>addNumbers</span>(List<span style=color:#f92672>&lt;?</span> <span style=color:#66d9ef>super</span> Integer<span style=color:#f92672>&gt;</span> list) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 1; i <span style=color:#f92672>&lt;=</span> 5; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>        list.<span style=color:#a6e22e>add</span>(i);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Sử dụng</span>
+</span></span><span style=display:flex><span>List<span style=color:#f92672>&lt;</span>Integer<span style=color:#f92672>&gt;</span> ints <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ArrayList<span style=color:#f92672>&lt;&gt;</span>();
+</span></span><span style=display:flex><span>List<span style=color:#f92672>&lt;</span>Number<span style=color:#f92672>&gt;</span> numbers <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ArrayList<span style=color:#f92672>&lt;&gt;</span>();
+</span></span><span style=display:flex><span>List<span style=color:#f92672>&lt;</span>Object<span style=color:#f92672>&gt;</span> objects <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ArrayList<span style=color:#f92672>&lt;&gt;</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>addNumbers(ints);
+</span></span><span style=display:flex><span>addNumbers(numbers);
+</span></span><span style=display:flex><span>addNumbers(objects);
+</span></span></code></pre></div><h2 id=generic-interfaces>Generic Interfaces</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Processor</span><span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> {
+</span></span><span style=display:flex><span>    T <span style=color:#a6e22e>process</span>(T input);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>StringProcessor</span> <span style=color:#66d9ef>implements</span> Processor<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>process</span>(String input) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> input.<span style=color:#a6e22e>toUpperCase</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>NumberProcessor</span> <span style=color:#66d9ef>implements</span> Processor<span style=color:#f92672>&lt;</span>Integer<span style=color:#f92672>&gt;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> Integer <span style=color:#a6e22e>process</span>(Integer input) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> input <span style=color:#f92672>*</span> 2;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Generic interface với multiple type parameters</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Mapper</span><span style=color:#f92672>&lt;</span>K, V<span style=color:#f92672>&gt;</span> {
+</span></span><span style=display:flex><span>    V <span style=color:#a6e22e>map</span>(K key);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>StringToLengthMapper</span> <span style=color:#66d9ef>implements</span> Mapper<span style=color:#f92672>&lt;</span>String, Integer<span style=color:#f92672>&gt;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> Integer <span style=color:#a6e22e>map</span>(String key) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> key.<span style=color:#a6e22e>length</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=type-erasure>Type Erasure</h2><p>Java sử dụng type erasure để duy trì backward compatibility. Điều này có nghĩa là generic type information bị remove tại runtime.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>TypeErasureExample</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>        List<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> strings <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ArrayList<span style=color:#f92672>&lt;&gt;</span>();
+</span></span><span style=display:flex><span>        List<span style=color:#f92672>&lt;</span>Integer<span style=color:#f92672>&gt;</span> numbers <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ArrayList<span style=color:#f92672>&lt;&gt;</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Tại runtime, cả hai đều là List</span>
+</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(strings.<span style=color:#a6e22e>getClass</span>() <span style=color:#f92672>==</span> numbers.<span style=color:#a6e22e>getClass</span>()); <span style=color:#75715e>// true</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Không thể kiểm tra generic type tại runtime</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// if (strings instanceof List&lt;String&gt;) { } // Lỗi compile</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (strings <span style=color:#66d9ef>instanceof</span> List<span style=color:#f92672>&lt;?&gt;</span>) { <span style=color:#75715e>// OK</span>
+</span></span><span style=display:flex><span>            System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;Is List&#34;</span>);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=raw-types-không-khuyến-khích>Raw Types (không khuyến khích)</h2><p>Raw types là generic types không có type parameters. Chúng tồn tại để duy trì compatibility với code cũ.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#75715e>// Raw type - không khuyến khích</span>
+</span></span><span style=display:flex><span>List rawList <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ArrayList();
+</span></span><span style=display:flex><span>rawList.<span style=color:#a6e22e>add</span>(<span style=color:#e6db74>&#34;String&#34;</span>);
+</span></span><span style=display:flex><span>rawList.<span style=color:#a6e22e>add</span>(123);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Generic type - khuyến khích</span>
+</span></span><span style=display:flex><span>List<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> genericList <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ArrayList<span style=color:#f92672>&lt;&gt;</span>();
+</span></span><span style=display:flex><span>genericList.<span style=color:#a6e22e>add</span>(<span style=color:#e6db74>&#34;String&#34;</span>);
+</span></span><span style=display:flex><span><span style=color:#75715e>// genericList.add(123); // Lỗi compile</span>
+</span></span></code></pre></div><h2 id=best-practices>Best Practices</h2><ol><li><strong>Luôn sử dụng generics</strong>: Tránh raw types</li><li><strong>Đặt tên type parameters có ý nghĩa</strong>: T, E (Element), K (Key), V (Value), etc.</li><li><strong>Sử dụng bounded wildcards khi phù hợp</strong>: Giúp API linh hoạt hơn</li><li><strong>Tránh heap pollution</strong>: Không mix raw types và generic types</li><li><strong>Document generic methods</strong>: Giải thích type parameters</li></ol><h2 id=ví-dụ-thực-tế-generic-repository>Ví dụ thực tế: Generic Repository</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#f92672>import</span> java.util.*;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>Repository</span><span style=color:#f92672>&lt;</span>T, ID<span style=color:#f92672>&gt;</span> {
+</span></span><span style=display:flex><span>    Optional<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>findById</span>(ID id);
+</span></span><span style=display:flex><span>    List<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>findAll</span>();
+</span></span><span style=display:flex><span>    T <span style=color:#a6e22e>save</span>(T entity);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>deleteById</span>(ID id);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>InMemoryRepository</span><span style=color:#f92672>&lt;</span>T, ID<span style=color:#f92672>&gt;</span> <span style=color:#66d9ef>implements</span> Repository<span style=color:#f92672>&lt;</span>T, ID<span style=color:#f92672>&gt;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> Map<span style=color:#f92672>&lt;</span>ID, T<span style=color:#f92672>&gt;</span> storage <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HashMap<span style=color:#f92672>&lt;&gt;</span>();
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> Function<span style=color:#f92672>&lt;</span>T, ID<span style=color:#f92672>&gt;</span> idExtractor;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>InMemoryRepository</span>(Function<span style=color:#f92672>&lt;</span>T, ID<span style=color:#f92672>&gt;</span> idExtractor) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>idExtractor</span> <span style=color:#f92672>=</span> idExtractor;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> Optional<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>findById</span>(ID id) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> Optional.<span style=color:#a6e22e>ofNullable</span>(storage.<span style=color:#a6e22e>get</span>(id));
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> List<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>findAll</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> ArrayList<span style=color:#f92672>&lt;&gt;</span>(storage.<span style=color:#a6e22e>values</span>());
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> T <span style=color:#a6e22e>save</span>(T entity) {
+</span></span><span style=display:flex><span>        ID id <span style=color:#f92672>=</span> idExtractor.<span style=color:#a6e22e>apply</span>(entity);
+</span></span><span style=display:flex><span>        storage.<span style=color:#a6e22e>put</span>(id, entity);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> entity;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>deleteById</span>(ID id) {
+</span></span><span style=display:flex><span>        storage.<span style=color:#a6e22e>remove</span>(id);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Sử dụng</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>User</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> String id;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> String name;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>User</span>(String id, String name) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>id</span> <span style=color:#f92672>=</span> id;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>name</span> <span style=color:#f92672>=</span> name;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>getId</span>() { <span style=color:#66d9ef>return</span> id; }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>getName</span>() { <span style=color:#66d9ef>return</span> name; }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>RepositoryExample</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>        Repository<span style=color:#f92672>&lt;</span>User, String<span style=color:#f92672>&gt;</span> userRepo <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> InMemoryRepository<span style=color:#f92672>&lt;&gt;</span>(User::getId);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        User user1 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> User(<span style=color:#e6db74>&#34;1&#34;</span>, <span style=color:#e6db74>&#34;Alice&#34;</span>);
+</span></span><span style=display:flex><span>        User user2 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> User(<span style=color:#e6db74>&#34;2&#34;</span>, <span style=color:#e6db74>&#34;Bob&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        userRepo.<span style=color:#a6e22e>save</span>(user1);
+</span></span><span style=display:flex><span>        userRepo.<span style=color:#a6e22e>save</span>(user2);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        Optional<span style=color:#f92672>&lt;</span>User<span style=color:#f92672>&gt;</span> found <span style=color:#f92672>=</span> userRepo.<span style=color:#a6e22e>findById</span>(<span style=color:#e6db74>&#34;1&#34;</span>);
+</span></span><span style=display:flex><span>        found.<span style=color:#a6e22e>ifPresent</span>(user <span style=color:#f92672>-&gt;</span> System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;Found: &#34;</span> <span style=color:#f92672>+</span> user.<span style=color:#a6e22e>getName</span>()));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        List<span style=color:#f92672>&lt;</span>User<span style=color:#f92672>&gt;</span> allUsers <span style=color:#f92672>=</span> userRepo.<span style=color:#a6e22e>findAll</span>();
+</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;Total users: &#34;</span> <span style=color:#f92672>+</span> allUsers.<span style=color:#a6e22e>size</span>());
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=kết-luận>Kết luận</h2><p>Java Generics là một tính năng mạnh mẽ giúp viết code type-safe, reusable và maintainable. Việc hiểu và sử dụng generics đúng cách sẽ giúp bạn viết code Java chất lượng cao hơn.</p></div></div></section></main><footer><div class=footer-content><div class=footer-section><h3>My Blog</h3><p>Khám phá những bài viết chất lượng về công nghệ, lập trình, và các
+xu hướng mới nhất.</p></div><div class=footer-section><h3>Liên kết nhanh</h3><ul><li><a href=../../>Trang Chủ</a></li><li><a href=../../about>Về tôi</a></li><li><a href=../../posts>Blog</a></li><li><a href=../../contact>Liên hệ</a></li></ul></div><div class=footer-section><h3>Danh mục</h3><ul><li><a href=../../categories/web-development>Web Development</a></li><li><a href=../../categories/trí-tuệ-nhân-tạo>AI</a></li><li><a href=../../categories/java>Java</a></li><li><a href=../../categories/javascript>JavaScript</a></li></ul></div><div class=footer-section><h3>Kết nối</h3><div class=social-links><a href=https://www.facebook.com/trung.tran.572662><i class="fab fa-facebook"></i></a>
+<a href=#><i class="fab fa-twitter"></i></a>
+<a href=https://www.instagram.com/trungkg915/><i class="fab fa-instagram"></i></a>
+<a href=#><i class="fab fa-github"></i></a></div></div></div><div class=footer-bottom><p>&copy; 2025 My Blog. All rights reserved.</p></div></footer><script>const toggleButton=document.getElementById("dark-mode-toggle"),body=document.body,icon=toggleButton.querySelector("i"),currentTheme=localStorage.getItem("theme")||"light";currentTheme==="dark"&&(body.classList.add("dark-mode"),icon.classList.remove("fa-moon"),icon.classList.add("fa-sun")),toggleButton.addEventListener("click",()=>{body.classList.toggle("dark-mode");const e=body.classList.contains("dark-mode")?"dark":"light";localStorage.setItem("theme",e),e==="dark"?(icon.classList.remove("fa-moon"),icon.classList.add("fa-sun")):(icon.classList.remove("fa-sun"),icon.classList.add("fa-moon"))})</script></body></html>
