@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>React on My New Hugo Site</title>
-    <link>/tags/react/</link>
+    <link>https://qtrungvn.github.io/myblog_qtrung/tags/react/</link>
     <description>Recent content in React on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 18 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://qtrungvn.github.io/myblog_qtrung/tags/react/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hướng dẫn toàn diện về React 18 và các tính năng mới</title>
-      <link>/posts/react-18/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/posts/react-18/</link>
       <pubDate>Wed, 18 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>/posts/react-18/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/react-18/</guid>
       <description>&lt;p&gt;Tìm hiểu về Concurrent Rendering, Automatic Batching và các tính năng mới trong React 18.&lt;/p&gt;</description>
     </item>
   </channel>

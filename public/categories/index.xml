@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on My New Hugo Site</title>
-    <link>/categories/</link>
+    <link>https://qtrungvn.github.io/myblog_qtrung/categories/</link>
     <description>Recent content in Categories on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 27 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://qtrungvn.github.io/myblog_qtrung/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JavaScript</title>
-      <link>/categories/javascript/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/categories/javascript/</link>
       <pubDate>Fri, 27 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>/categories/javascript/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/categories/javascript/</guid>
       <description></description>
     </item>
     <item>
       <title>Java</title>
-      <link>/categories/java/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/categories/java/</link>
       <pubDate>Mon, 23 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>/categories/java/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/categories/java/</guid>
       <description></description>
     </item>
     <item>
       <title>Trí Tuệ Nhân Tạo</title>
-      <link>/categories/tr%C3%AD-tu%E1%BB%87-nh%C3%A2n-t%E1%BA%A1o/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/categories/tr%C3%AD-tu%E1%BB%87-nh%C3%A2n-t%E1%BA%A1o/</link>
       <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>/categories/tr%C3%AD-tu%E1%BB%87-nh%C3%A2n-t%E1%BA%A1o/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/categories/tr%C3%AD-tu%E1%BB%87-nh%C3%A2n-t%E1%BA%A1o/</guid>
       <description></description>
     </item>
     <item>
       <title>Web Development</title>
-      <link>/categories/web-development/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/categories/web-development/</link>
       <pubDate>Wed, 18 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>/categories/web-development/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/categories/web-development/</guid>
       <description></description>
     </item>
   </channel>

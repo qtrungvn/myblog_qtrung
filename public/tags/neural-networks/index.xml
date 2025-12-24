@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Neural Networks on My New Hugo Site</title>
-    <link>/tags/neural-networks/</link>
+    <link>https://qtrungvn.github.io/myblog_qtrung/tags/neural-networks/</link>
     <description>Recent content in Neural Networks on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 20 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/tags/neural-networks/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://qtrungvn.github.io/myblog_qtrung/tags/neural-networks/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tương lai của Trí tuệ Nhân tạo: Những xu hướng đáng chú ý năm 2024</title>
-      <link>/posts/ai-future/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/posts/ai-future/</link>
       <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>/posts/ai-future/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/ai-future/</guid>
       <description>&lt;p&gt;Khám phá những tiến bộ mới nhất trong lĩnh vực AI, từ machine learning đến neural networks, và cách chúng đang thay đổi thế giới công nghệ.&lt;/p&gt;</description>
     </item>
   </channel>

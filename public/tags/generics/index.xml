@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Generics on My New Hugo Site</title>
-    <link>/tags/generics/</link>
+    <link>https://qtrungvn.github.io/myblog_qtrung/tags/generics/</link>
     <description>Recent content in Generics on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 21 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/tags/generics/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://qtrungvn.github.io/myblog_qtrung/tags/generics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java Generics - Type Safety và Code Reusability</title>
-      <link>/posts/java-generics/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/posts/java-generics/</link>
       <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>/posts/java-generics/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/java-generics/</guid>
       <description>Khám phá sức mạnh của Java Generics với Generic Classes, Methods và Wildcards để viết code an toàn và tái sử dụng.</description>
     </item>
   </channel>
