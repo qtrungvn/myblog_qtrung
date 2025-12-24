@@ -2,164 +2,164 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Trung Blog</title>
-    <link>http://localhost:1313/myblog_qtrung/tags/</link>
+    <link>https://qtrungvn.github.io/myblog_qtrung/tags/</link>
     <description>Recent content in Tags on Trung Blog</description>
     <generator>Hugo</generator>
     <language>vi-vn</language>
     <lastBuildDate>Wed, 24 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/myblog_qtrung/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://qtrungvn.github.io/myblog_qtrung/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ES6</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/es6/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/tags/es6/</link>
       <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/es6/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/tags/es6/</guid>
       <description></description>
     </item>
     <item>
       <title>JavaScript</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/javascript/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/tags/javascript/</link>
       <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/javascript/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/tags/javascript/</guid>
       <description></description>
     </item>
     <item>
       <title>Modern JavaScript</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/modern-javascript/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/tags/modern-javascript/</link>
       <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/modern-javascript/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/tags/modern-javascript/</guid>
       <description></description>
     </item>
     <item>
       <title>Programming</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/programming/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/tags/programming/</link>
       <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/programming/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/tags/programming/</guid>
       <description></description>
     </item>
     <item>
       <title>Concurrency</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/concurrency/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/tags/concurrency/</link>
       <pubDate>Tue, 23 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/concurrency/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/tags/concurrency/</guid>
       <description></description>
     </item>
     <item>
       <title>Java</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/java/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/tags/java/</link>
       <pubDate>Tue, 23 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/java/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/tags/java/</guid>
       <description></description>
     </item>
     <item>
       <title>Multithreading</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/multithreading/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/tags/multithreading/</link>
       <pubDate>Tue, 23 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/multithreading/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/tags/multithreading/</guid>
       <description></description>
     </item>
     <item>
       <title>Performance</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/performance/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/tags/performance/</link>
       <pubDate>Tue, 23 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/performance/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/tags/performance/</guid>
       <description></description>
     </item>
     <item>
       <title>Framework</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/framework/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/tags/framework/</link>
       <pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/framework/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/tags/framework/</guid>
       <description></description>
     </item>
     <item>
       <title>Spring Boot</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/spring-boot/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/tags/spring-boot/</link>
       <pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/spring-boot/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/tags/spring-boot/</guid>
       <description></description>
     </item>
     <item>
       <title>Web Development</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/web-development/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/tags/web-development/</link>
       <pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/web-development/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/tags/web-development/</guid>
       <description></description>
     </item>
     <item>
       <title>Generics</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/generics/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/tags/generics/</link>
       <pubDate>Sun, 21 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/generics/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/tags/generics/</guid>
       <description></description>
     </item>
     <item>
       <title>Type Safety</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/type-safety/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/tags/type-safety/</link>
       <pubDate>Sun, 21 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/type-safety/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/tags/type-safety/</guid>
       <description></description>
     </item>
     <item>
       <title>AI</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/ai/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/tags/ai/</link>
       <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/ai/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/tags/ai/</guid>
       <description></description>
     </item>
     <item>
       <title>Functional Programming</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/functional-programming/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/tags/functional-programming/</link>
       <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/functional-programming/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/tags/functional-programming/</guid>
       <description></description>
     </item>
     <item>
       <title>Machine Learning</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/machine-learning/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/tags/machine-learning/</link>
       <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/machine-learning/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/tags/machine-learning/</guid>
       <description></description>
     </item>
     <item>
       <title>Neural Networks</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/neural-networks/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/tags/neural-networks/</link>
       <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/neural-networks/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/tags/neural-networks/</guid>
       <description></description>
     </item>
     <item>
       <title>Streams</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/streams/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/tags/streams/</link>
       <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/streams/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/tags/streams/</guid>
       <description></description>
     </item>
     <item>
       <title>Collections</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/collections/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/tags/collections/</link>
       <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/collections/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/tags/collections/</guid>
       <description></description>
     </item>
     <item>
       <title>Data Structures</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/data-structures/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/tags/data-structures/</link>
       <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/data-structures/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/tags/data-structures/</guid>
       <description></description>
     </item>
     <item>
       <title>Frontend</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/frontend/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/tags/frontend/</link>
       <pubDate>Thu, 18 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/frontend/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/tags/frontend/</guid>
       <description></description>
     </item>
     <item>
       <title>React</title>
-      <link>http://localhost:1313/myblog_qtrung/tags/react/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/tags/react/</link>
       <pubDate>Thu, 18 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/tags/react/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/tags/react/</guid>
       <description></description>
     </item>
   </channel>

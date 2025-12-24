@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Trung Blog</title>
-    <link>http://localhost:1313/myblog_qtrung/about/</link>
+    <link>https://qtrungvn.github.io/myblog_qtrung/about/</link>
     <description>Recent content on Trung Blog</description>
     <generator>Hugo</generator>
     <language>vi-vn</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="http://localhost:1313/myblog_qtrung/about/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://qtrungvn.github.io/myblog_qtrung/about/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

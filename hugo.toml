@@ -5,4 +5,3 @@ title = "Trung Blog"
 relativeURLs = true
 canonifyURLs = true
 
-theme = "hugo-developer-portfolio"

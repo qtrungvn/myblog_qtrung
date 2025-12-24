@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Web Development on Trung Blog</title>
-    <link>http://localhost:1313/myblog_qtrung/tags/web-development/</link>
+    <link>https://qtrungvn.github.io/myblog_qtrung/tags/web-development/</link>
     <description>Recent content in Web Development on Trung Blog</description>
     <generator>Hugo</generator>
     <language>vi-vn</language>
     <lastBuildDate>Mon, 22 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/myblog_qtrung/tags/web-development/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://qtrungvn.github.io/myblog_qtrung/tags/web-development/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>http://localhost:1313/myblog_qtrung/posts/spring-boot-basics/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/posts/spring-boot-basics/</link>
       <pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/posts/spring-boot-basics/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/spring-boot-basics/</guid>
       <description>Hướng dẫn tạo ứng dụng Spring Boot đầu tiên với REST API, Dependency Injection và Auto-configuration.</description>
     </item>
   </channel>

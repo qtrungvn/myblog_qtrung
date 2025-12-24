@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Web Development on Trung Blog</title>
-    <link>http://localhost:1313/myblog_qtrung/categories/web-development/</link>
+    <link>https://qtrungvn.github.io/myblog_qtrung/categories/web-development/</link>
     <description>Recent content in Web Development on Trung Blog</description>
     <generator>Hugo</generator>
     <language>vi-vn</language>
     <lastBuildDate>Thu, 18 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/myblog_qtrung/categories/web-development/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://qtrungvn.github.io/myblog_qtrung/categories/web-development/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>http://localhost:1313/myblog_qtrung/posts/react-18/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/posts/react-18/</link>
       <pubDate>Thu, 18 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/posts/react-18/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/react-18/</guid>
       <description>&lt;p&gt;Tìm hiểu về Concurrent Rendering, Automatic Batching và các tính năng mới trong React 18.&lt;/p&gt;</description>
     </item>
   </channel>

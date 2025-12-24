@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Modern JavaScript on Trung Blog</title>
-    <link>http://localhost:1313/myblog_qtrung/tags/modern-javascript/</link>
+    <link>https://qtrungvn.github.io/myblog_qtrung/tags/modern-javascript/</link>
     <description>Recent content in Modern JavaScript on Trung Blog</description>
     <generator>Hugo</generator>
     <language>vi-vn</language>
     <lastBuildDate>Wed, 24 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/myblog_qtrung/tags/modern-javascript/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://qtrungvn.github.io/myblog_qtrung/tags/modern-javascript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>http://localhost:1313/myblog_qtrung/posts/es6-features/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/posts/es6-features/</link>
       <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/posts/es6-features/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/es6-features/</guid>
       <description>Khám phá các tính năng mạnh mẽ của ES6: arrow functions, destructuring, modules, promises và nhiều hơn nữa.</description>
     </item>
   </channel>

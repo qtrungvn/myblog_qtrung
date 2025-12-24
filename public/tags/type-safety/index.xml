@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Type Safety on Trung Blog</title>
-    <link>http://localhost:1313/myblog_qtrung/tags/type-safety/</link>
+    <link>https://qtrungvn.github.io/myblog_qtrung/tags/type-safety/</link>
     <description>Recent content in Type Safety on Trung Blog</description>
     <generator>Hugo</generator>
     <language>vi-vn</language>
     <lastBuildDate>Sun, 21 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/myblog_qtrung/tags/type-safety/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://qtrungvn.github.io/myblog_qtrung/tags/type-safety/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>http://localhost:1313/myblog_qtrung/posts/java-generics/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/posts/java-generics/</link>
       <pubDate>Sun, 21 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/posts/java-generics/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/java-generics/</guid>
       <description>Khám phá sức mạnh của Java Generics với Generic Classes, Methods và Wildcards để viết code an toàn và tái sử dụng.</description>
     </item>
   </channel>

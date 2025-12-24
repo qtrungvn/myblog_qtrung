@@ -2,66 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Trung Blog</title>
-    <link>http://localhost:1313/myblog_qtrung/posts/</link>
+    <link>https://qtrungvn.github.io/myblog_qtrung/posts/</link>
     <description>Recent content in Posts on Trung Blog</description>
     <generator>Hugo</generator>
     <language>vi-vn</language>
     <lastBuildDate>Wed, 24 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/myblog_qtrung/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://qtrungvn.github.io/myblog_qtrung/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>http://localhost:1313/myblog_qtrung/posts/es6-features/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/posts/es6-features/</link>
       <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/posts/es6-features/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/es6-features/</guid>
       <description>Khám phá các tính năng mạnh mẽ của ES6: arrow functions, destructuring, modules, promises và nhiều hơn nữa.</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/myblog_qtrung/posts/java-multithreading/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/posts/java-multithreading/</link>
       <pubDate>Tue, 23 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/posts/java-multithreading/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/java-multithreading/</guid>
       <description>Khám phá Java Multithreading với Thread, Runnable, synchronized, và các công cụ concurrency hiện đại.</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/myblog_qtrung/posts/spring-boot-basics/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/posts/spring-boot-basics/</link>
       <pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/posts/spring-boot-basics/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/spring-boot-basics/</guid>
       <description>Hướng dẫn tạo ứng dụng Spring Boot đầu tiên với REST API, Dependency Injection và Auto-configuration.</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/myblog_qtrung/posts/java-generics/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/posts/java-generics/</link>
       <pubDate>Sun, 21 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/posts/java-generics/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/java-generics/</guid>
       <description>Khám phá sức mạnh của Java Generics với Generic Classes, Methods và Wildcards để viết code an toàn và tái sử dụng.</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/myblog_qtrung/posts/java-streams/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/posts/java-streams/</link>
       <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/posts/java-streams/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/java-streams/</guid>
       <description>Khám phá Java Streams API với các phép toán trung gian và cuối cùng để xử lý dữ liệu một cách khai báo.</description>
     </item>
     <item>
       <title>Tương lai của Trí tuệ Nhân tạo: Những xu hướng đáng chú ý năm 2025</title>
-      <link>http://localhost:1313/myblog_qtrung/posts/ai-future/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/posts/ai-future/</link>
       <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/posts/ai-future/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/ai-future/</guid>
       <description>&lt;p&gt;Khám phá những tiến bộ mới nhất trong lĩnh vực AI, từ machine learning đến neural networks, và cách chúng đang thay đổi thế giới công nghệ.&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/myblog_qtrung/posts/java-collections/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/posts/java-collections/</link>
       <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/posts/java-collections/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/java-collections/</guid>
       <description>Khám phá Java Collections Framework với ArrayList, HashMap, HashSet và các cấu trúc dữ liệu quan trọng khác.</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/myblog_qtrung/posts/react-18/</link>
+      <link>https://qtrungvn.github.io/myblog_qtrung/posts/react-18/</link>
       <pubDate>Thu, 18 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/myblog_qtrung/posts/react-18/</guid>
+      <guid>https://qtrungvn.github.io/myblog_qtrung/posts/react-18/</guid>
       <description>&lt;p&gt;Tìm hiểu về Concurrent Rendering, Automatic Batching và các tính năng mới trong React 18.&lt;/p&gt;</description>
     </item>
   </channel>
