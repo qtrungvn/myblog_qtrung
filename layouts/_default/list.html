@@ -1,6 +1,5 @@
 {{ define "main" }}
 
-<!-- Blog Header -->
 <section class="blog-header">
   <div class="container">
     <h1>Blog</h1>
@@ -8,20 +7,19 @@
   </div>
 </section>
 
-<!-- Blog Content -->
 <div class="container">
   <div class="blog-layout">
-    <!-- Main Content -->
     <main class="blog-main">
-      <!-- Posts List -->
+      {{ $paginator := .Paginate (where .Site.RegularPages "Section" "posts") 3
+      }}
+
       <div class="posts-container">
-        {{ range .Pages }}
+        {{ range $paginator.Pages }}
         <article class="blog-post-card">
           <div class="post-image">
-            <img
-              src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2Rpbmd8ZW58MXx8fHwxNzY2NDYzMzQ5fDA&ixlib=rb-4.1.0&q=80&w=1080"
-              alt="{{ .Title }}"
-            />
+            <img src="{{ .Params.image | default
+            "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1080"
+            }}" alt="{{ .Title }}" />
             <div class="post-category">
               {{ if .Params.categories }} {{ index .Params.categories 0 }} {{
               else }} Programming {{ end }}
@@ -34,21 +32,12 @@
             <div class="post-meta">
               <span class="date">
                 <i class="fas fa-calendar"></i>
-                {{ .Date.Format "2 Tháng 1, 2006" }}
+                {{ .Date.Format "02/01/2006" }}
               </span>
               <span class="reading-time">
                 <i class="fas fa-clock"></i>
                 {{ .ReadingTime }} phút đọc
               </span>
-              {{ if .Params.tags }}
-              <span class="tags">
-                <i class="fas fa-tags"></i>
-                {{ range $index, $tag := .Params.tags }} {{ if gt $index 0 }},
-                {{ end }}
-                <a href="/tags/{{ $tag | urlize }}">{{ $tag }}</a>
-                {{ end }}
-              </span>
-              {{ end }}
             </div>
 
             <p class="post-summary">{{ .Summary }}</p>
@@ -61,21 +50,20 @@
         {{ end }}
       </div>
 
-      <!-- Pagination -->
-      {{ if .Paginator }}
+      {{ if gt $paginator.TotalPages 1 }}
       <nav class="pagination">
-        {{ if .Paginator.HasPrev }}
-        <a href="{{ .Paginator.Prev.URL }}" class="page-link">
+        {{ if $paginator.HasPrev }}
+        <a href="{{ $paginator.Prev.URL }}" class="page-link">
           <i class="fas fa-chevron-left"></i> Trước
         </a>
         {{ end }}
 
         <span class="page-info">
-          Trang {{ .Paginator.PageNumber }} / {{ .Paginator.TotalPages }}
+          Trang {{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}
         </span>
 
-        {{ if .Paginator.HasNext }}
-        <a href="{{ .Paginator.Next.URL }}" class="page-link">
+        {{ if $paginator.HasNext }}
+        <a href="{{ $paginator.Next.URL }}" class="page-link">
           Sau <i class="fas fa-chevron-right"></i>
         </a>
         {{ end }}
@@ -83,9 +71,7 @@
       {{ end }}
     </main>
 
-    <!-- Sidebar -->
     <aside class="blog-sidebar">
-      <!-- Categories -->
       <div class="sidebar-widget">
         <h3>Danh mục</h3>
         <ul class="category-list">
@@ -100,7 +86,6 @@
         </ul>
       </div>
 
-      <!-- Recent Posts -->
       <div class="sidebar-widget">
         <h3>Bài viết mới</h3>
         <ul class="recent-posts-list">
@@ -108,14 +93,15 @@
           <li>
             <a href="{{ .RelPermalink }}">
               <div class="recent-post-title">{{ .Title }}</div>
-              <div class="recent-post-date">{{ .Date.Format "2/1/2006" }}</div>
+              <div class="recent-post-date">
+                {{ .Date.Format "02/01/2006" }}
+              </div>
             </a>
           </li>
           {{ end }}
         </ul>
       </div>
 
-      <!-- Tags -->
       <div class="sidebar-widget">
         <h3>Tags</h3>
         <div class="tags-cloud">
