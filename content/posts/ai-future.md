@@ -2,7 +2,7 @@
 title: "Tương lai của Trí tuệ Nhân tạo: Những xu hướng đáng chú ý năm 2025"
 date: 2025-12-20T00:00:00Z
 draft: false
-categories: ["Trí tuệ nhân tạo"]
+categories: ["JavaScript"]
 tags: ["AI", "machine learning", "neural networks"]
 summary: "Khám phá những tiến bộ mới nhất trong lĩnh vực AI, từ machine learning đến neural networks, và cách chúng đang thay đổi thế giới công nghệ."
 ---
